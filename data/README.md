@@ -43,3 +43,20 @@ Downloads fail nonzero on HTTP errors or unexpected content. Data is never fabri
 The portal's former disengagement overview URL returned 404 at retrieval time;
 original file endpoints remain available. Current portal:
 https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/
+
+## Event context views
+
+The dashboard and Streamlit companion group initiator, location and cause categories.
+Every category rate uses the **entire selected exposure**, not miles driven on a specific
+road type or under a specific condition. Category intervals always use exact Poisson,
+independently of the overall chart's NB setting. Event shares describe the composition
+of reported events; they are undefined when the selection has zero total events.
+
+The detailed event table retains its case-normalized source labels. Context grouping
+uses explicit aliases in `CONTEXT_ALIASES` in `data.py`: driver/soft-stop variants map
+to Test Driver; system/emergency-stop/software/ADS variants map to AV System. Ambiguous
+Yes, Operator, In-Field Retrieval and mixed driver/system responses map to Unknown
+(99 records). Urban and Express Way location responses remain Unknown (201 records);
+Interstate (On Ramp), Parking Facility and Rural Road have explicit corresponding groups.
+No event is discarded. All declared categories remain visible, including zero counts.
+Cause keyword categories retain their documented first-match rules and limitations.

@@ -42,7 +42,7 @@ for tab, renderer in zip(tabs[:3], [rates_view, compare_view, planner_view], str
         if selected.empty:
             st.info("No exposure in this selection. Choose a manufacturer and reporting year.")
         elif renderer == rates_view:
-            renderer(selected, units, method, confidence, scale)
+            renderer(selected, units, method, confidence, scale, data["events"])
         elif renderer == compare_view:
             renderer(selected, confidence, scale)
         else:

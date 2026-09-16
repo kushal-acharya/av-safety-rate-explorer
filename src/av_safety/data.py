@@ -258,5 +258,57 @@ def main() -> None:
     print(tables["audit"].query("rows > 0").to_string(index=False))
 
 
+# Context aliases are intentionally conservative. Ambiguous/mixed responses stay Unknown.
+CONTEXT_CATEGORIES = {
+    "initiated_by": ["AV System", "Test Driver", "Remote Operator", "Passenger", "Unknown"],
+    "location": ["Street", "Highway", "Freeway", "Interstate", "Parking", "Rural", "Unknown"],
+    "cause_category": [label for label, _ in CAUSE_RULES] + ["Unknown"],
+}
+CONTEXT_ALIASES = {
+    "initiated_by": {
+        "av system": "AV System",
+        "av system - emergency stop": "AV System",
+        "software": "AV System",
+        "ads": "AV System",
+        "test driver": "Test Driver",
+        "test driver - soft stop": "Test Driver",
+        "test drive": "Test Driver",
+        "driver": "Test Driver",
+        "safety driver": "Test Driver",
+        "remote operator": "Remote Operator",
+        "passenger": "Passenger",
+    },
+    "location": {
+        "street": "Street",
+        "highway": "Highway",
+        "freeway": "Freeway",
+        "interstate": "Interstate",
+        "interstate (on ramp)": "Interstate",
+        "parking facility": "Parking",
+        "parking": "Parking",
+        "rural road": "Rural",
+        "rural": "Rural",
+    },
+}
+
+
+def context_aggregates(events: pd.DataFrame) -> dict[str, pd.DataFrame]:
+    """Aggregate exclusive context buckets without discarding any reported event.
+
+    Original event labels remain in the committed events table. Ambiguous initiators
+    (Yes, Operator, In-Field Retrieval, mixed driver/system) and underspecified road
+    classes (Urban, Express Way) map to Unknown instead of implying a more specific label.
+    """
+    result = {}
+    for dimension, categories in CONTEXT_CATEGORIES.items():
+        frame = events[KEYS + [dimension]].copy()
+        labels = frame[dimension].fillna("Unknown").str.strip()
+        if dimension in CONTEXT_ALIASES:
+            labels = labels.str.lower().map(CONTEXT_ALIASES[dimension]).fillna("Unknown")
+        frame["category"] = labels.where(labels.isin(categories), "Unknown")
+        result[dimension] = frame.groupby(KEYS + ["category"]).size().reset_index(name="count")
+    return result
+
+
 if __name__ == "__main__":
     main()

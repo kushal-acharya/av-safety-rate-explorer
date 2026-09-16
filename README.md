@@ -12,6 +12,8 @@ and expected events needed for a hypothetical two-arm experiment.
 
 - **Rate explorer:** manufacturer/year/permit filters, 90/95/99% intervals, selectable
   exact Poisson or Negative Binomial estimation, zero-event upper bounds, and CSV export.
+  Inspect initiator, location and cause categories with event shares, exact intervals,
+  explicit total-mile denominators and a separate context export.
 - **Compare:** exposure-adjusted B/A rate ratios, log-Wald or zero-count exact conditional
   intervals, and exact conditional Poisson p-values.
 - **Experiment planner:** editable rates, improvement, power, significance, allocation,
@@ -78,7 +80,8 @@ Python tests cover statistical reference values, validation, data reconciliation
 deterministic rebuilds when raw files are present, and Streamlit widget interactions.
 JavaScript tests cross-check 63 Poisson intervals, 6 comparisons and 27 planner designs
 against SciPy, plus boundary handling. Browser tests exercise all views, filtering,
-zero-event groups, invalid planner inputs, export, share URLs and mobile overflow.
+zero-event groups, event-context categories, invalid planner inputs, exports, share URLs
+and mobile overflow. Context tests reconcile every annual cell and preserve ambiguous labels.
 GitHub Actions installs Chromium and runs the core and browser tests on every push.
 
 ## Rebuild the historical snapshot

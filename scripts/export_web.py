@@ -6,7 +6,7 @@ import itertools
 import json
 import math
 
-from av_safety.data import ROOT, load_processed
+from av_safety.data import CONTEXT_CATEGORIES, ROOT, context_aggregates, load_processed
 from av_safety.stats import dispersion_test, nb_rate_ci
 
 
@@ -38,27 +38,14 @@ def main() -> None:
                             2 * 1.95996398454
                         )
                 fits[f"{mode}|{manufacturer}|{','.join(map(str, subset))}"] = {**fit, **diagnostic}
-    causes = (
-        tables["events"]
-        .groupby(["year", "mode", "manufacturer", "cause_category"])
-        .size()
-        .reset_index(name="count")
-        .to_dict("records")
-    )
-    initiators = (
-        tables["events"]
-        .groupby(["year", "mode", "manufacturer", "initiated_by"])
-        .size()
-        .reset_index(name="count")
-        .to_dict("records")
-    )
+    context = context_aggregates(tables["events"])
     data = {
         "years": [2020, 2021, 2022, 2023, 2024],
         "retrieved": "2026-09-16",
         "annual": annual.to_dict("records"),
         "fits": fits,
-        "causes": causes,
-        "initiators": initiators,
+        "context": {key: frame.to_dict("records") for key, frame in context.items()},
+        "context_categories": CONTEXT_CATEGORIES,
         "audit": tables["audit"].to_dict("records"),
     }
     out = ROOT / "web/waymo-project"

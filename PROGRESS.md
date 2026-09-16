@@ -42,3 +42,10 @@
 - GitHub Actions run 35070357578 passed, including Linux Chromium interaction tests.
 - Build checkpoint automation paused after delivery; all source and progress saved to GitHub.
 - Scope: versioned 2020–2024 disengagement data, not crash data or live safety rankings. Hosted UI is the custom dashboard; the Streamlit companion runs from the same repository.
+
+## Version 1.1 — event context exploration
+- Added initiator, reported-location and cause-keyword context to the web and Streamlit interfaces.
+- Context retains every event, zero-event category and ambiguous Unknown label. Road-type-specific mileage is never inferred.
+- Added shareable context selection and CSV export with full exposure, confidence and zero-count conventions.
+- Validated 31 Python tests, 9 JavaScript suites, browser interactions and all four accessibility scans.
+- Ready to publish this update to the existing Cloudflare path.

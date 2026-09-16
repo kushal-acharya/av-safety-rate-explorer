@@ -47,7 +47,11 @@ All 128 annual manufacturer/year/mode event counts reconcile with 22,958 detaile
 47 missing annual mileage cells were reconstructed from monthly reports. 13 date anomalies
 are flagged and retained under the reported year. One zero-mile VIN with an event disables
 NB fitting for the affected group. See `data/README.md` and the source manifest for hashes.
-Cause categories are simple first-match keyword buckets, not validated causal labels.
+Event context groups initiator, location and cause while retaining Unknown and zero-event
+categories. Each category uses the full selected exposure; roadway-specific mileage is
+unavailable. Category intervals always use exact Poisson. Ambiguous source labels stay
+Unknown, and original labels remain in the detailed event table. Cause categories are
+simple first-match keyword buckets, not validated causal labels.
 
 References: Garwood (1936), Biometrika 28:437–442; McCullagh & Nelder (1989);
 SciPy chi-square/binomial inference; statsmodels NegativeBinomial (NB2).

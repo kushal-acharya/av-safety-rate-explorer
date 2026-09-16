@@ -14,6 +14,7 @@ def test_all_tabs_and_filters():
         "Experiment Planner",
         "Methods & Limitations",
     ]
+    assert app.dataframe[1].value.events.sum() == 939
     initial = app.dataframe[0].value
     app.sidebar.multiselect[0].set_value([2024]).run()
     assert not app.exception

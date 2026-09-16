@@ -42,3 +42,31 @@ def summarize(
             }
         )
     return pd.DataFrame(records)
+
+
+def context_summary(
+    events: pd.DataFrame, annual: pd.DataFrame, dimension: str, confidence: float
+) -> pd.DataFrame:
+    """Use the full selected exposure for each category's exact Poisson interval."""
+    from av_safety.data import CONTEXT_CATEGORIES, KEYS, context_aggregates
+
+    if dimension not in CONTEXT_CATEGORIES:
+        raise ValueError("Unknown event context dimension")
+    selected = events.merge(annual[KEYS], on=KEYS, how="inner", validate="many_to_one")
+    if len(selected) != int(annual.events.sum()):
+        raise ValueError("Context counts do not reconcile with annual event totals")
+    miles = float(annual.miles.sum())
+    counts = context_aggregates(selected)[dimension].groupby("category")["count"].sum()
+    records = []
+    for category in CONTEXT_CATEGORIES[dimension]:
+        count = int(counts.get(category, 0))
+        records.append(
+            {
+                "category": category,
+                "events": count,
+                "miles": miles,
+                "share": count / len(selected) if len(selected) else None,
+                **poisson_rate_ci(count, miles, 1 - confidence).to_dict(),
+            }
+        )
+    return pd.DataFrame(records)

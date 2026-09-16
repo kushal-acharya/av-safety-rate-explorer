@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from av_safety.analysis import summarize
+from av_safety.analysis import context_summary, summarize
 from av_safety.plots import power_figure, rates_figure
 from av_safety.stats import miles_needed, poisson_rate_ci, power_curve, rate_ratio_ci, rule_of_three
 from av_safety.text import METHODS
@@ -15,10 +15,16 @@ cached_summary = st.cache_data(summarize)
 
 
 def rates_view(
-    annual: pd.DataFrame, units: pd.DataFrame, method: str, confidence: float, scale: int
+    annual: pd.DataFrame,
+    units: pd.DataFrame,
+    method: str,
+    confidence: float,
+    scale: int,
+    events: pd.DataFrame,
 ) -> None:
     """Render estimates, intervals, downloadable evidence and zero-event bounds."""
     table = cached_summary(annual, units, method, confidence)
+    detail = events
     miles, events = float(annual.miles.sum()), int(annual.events.sum())
     p = poisson_rate_ci(events, miles, 1 - confidence)
     columns = st.columns(3)
@@ -57,6 +63,33 @@ def rates_view(
             f"{rule_of_three(m, confidence) * scale:.4g} per {scale:,} miles."
         )
         st.caption("At 95%, the one-sided coefficient is 2.996; two-sided is 3.689.")
+
+    event_context_view(detail, annual, confidence, scale)
+
+
+def event_context_view(
+    events: pd.DataFrame, annual: pd.DataFrame, confidence: float, scale: int
+) -> None:
+    """Inspect event categories while preserving the full exposure denominator."""
+    with st.expander("Inside the reported events"):
+        dimension = st.selectbox(
+            "Explore event context", ["initiated_by", "location", "cause_category"]
+        )
+        table = context_summary(events, annual, dimension, confidence)
+        for col in ["rate", "lower", "upper"]:
+            table[col] *= scale
+        table.loc[table.events == 0, "rate"] = np.nan
+        st.dataframe(table, hide_index=True, width="stretch")
+        st.caption(
+            f"Rates and {confidence:.0%} exact Poisson intervals per {scale:,} total selected "
+            "miles. Each category uses the full exposure, not road-type-specific mileage. "
+            "Ambiguous source labels stay Unknown; cause keywords are not adjudicated causes."
+        )
+        table["rate_units"] = f"events per {scale:,} total selected miles"
+        table["confidence"] = confidence
+        st.download_button(
+            "Download event context CSV", table.to_csv(index=False), "event-context.csv", "text/csv"
+        )
 
 
 def compare_view(annual: pd.DataFrame, confidence: float, scale: int) -> None:
