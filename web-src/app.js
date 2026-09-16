@@ -1,3 +1,4 @@
+import { mountGeography } from './geography-view.js';
 import { mountReplication } from './replication-view.js';
 import { mountEventContext } from './context-view.js';
 import { poisson, zeroBound, ratio, plan, powerAt, interval } from './stats.js';
@@ -9,21 +10,24 @@ const compact = n => n >= 1e9 ? `${fmt(n / 1e9, 2)}B` : n >= 1e6 ? `${fmt(n / 1e
 const rateFmt = n => n === 0 ? '0' : n < .001 ? n.toExponential(2) : fmt(n, n < .1 ? 4 : 3);
 const options = (values, selected) => values.map(([v, label]) => `<option value="${esc(v)}" ${String(v) === String(selected) ? 'selected' : ''}>${esc(label)}</option>`).join('');
 let data;
-const state = { tab: 'rates', companies: ['Waymo'], years: [2020,2021,2022,2023,2024], mode: 'safety-driver', confidence: .95, unit: 1000, method: 'auto', context: 'initiated_by', study: 'sf-injury', tails: 'paper_code' };
+const state = { tab: 'rates', companies: ['Waymo'], years: [2020,2021,2022,2023,2024], mode: 'safety-driver', confidence: .95, unit: 1000, method: 'auto', context: 'initiated_by', study: 'sf-injury', tails: 'paper_code', geoCity:'SAN_FRANCISCO', geoMetric:'airbag', geoMix:100, geoStress:100 };
 let plannerInitialized = false, compareA = '', compareB = '';
 const planner = { baseline: .08, reduction: 10, alpha: .05, power: .8, phi: 1, allocation: .5, twoSided: true };
 const params = new URLSearchParams(location.search);
-for (const k of ['tab','mode','method','context','study','tails']) if (params.has(k)) state[k] = params.get(k);
+for (const k of ['tab','mode','method','context','study','tails','geoCity','geoMetric']) if (params.has(k)) state[k] = params.get(k);
 if (params.has('companies')) state.companies = params.get('companies').split(',');
 if (params.has('years')) state.years = params.get('years').split(',').map(Number).filter(y=>y>=2020&&y<=2024);
 if ([.9,.95,.99].includes(Number(params.get('confidence')))) state.confidence = Number(params.get('confidence'));
 if ([1000,100000].includes(Number(params.get('unit')))) state.unit = Number(params.get('unit'));
-if (!['rates','compare','planner','methods','replication'].includes(state.tab)) state.tab = 'rates';
+if (!['rates','compare','planner','methods','replication','geography'].includes(state.tab)) state.tab = 'rates';
 if (!['safety-driver','driverless'].includes(state.mode)) state.mode = 'safety-driver';
 if (!['auto','poisson','nb'].includes(state.method)) state.method = 'auto';
 if (!['initiated_by','location','cause_category'].includes(state.context)) state.context = 'initiated_by';
 if (!['sf-injury','phx-injury','sf-police','phx-police'].includes(state.study)) state.study = 'sf-injury';
 if (!['paper_code','equation'].includes(state.tails)) state.tails = 'paper_code';
+if (!['SAN_FRANCISCO','PHOENIX','LOS_ANGELES'].includes(state.geoCity)) state.geoCity='SAN_FRANCISCO';
+if (!['airbag','blincoe_any_injury','observed_any_injury'].includes(state.geoMetric)) state.geoMetric='airbag';
+for(const [key,min,max] of [['geoMix',0,100],['geoStress',50,150]]) { const n=Number(params.get(key));if(params.has(key)&&Number.isFinite(n)&&n>=min&&n<=max)state[key]=Math.round(n); }
 const conf = () => `${Math.round(state.confidence * 100)}%`;
 const unitLabel = () => `per ${fmt(state.unit, 0)} miles`;
 const selectedRows = () => data.annual.filter(r => r.mode === state.mode && state.years.includes(r.year) && state.companies.includes(r.manufacturer) && r.eligible);
@@ -177,14 +181,15 @@ async function renderReplication(focus = null) {
   });
   if (focus && state.tab === 'replication') $(focus)?.focus();
 }
+function renderGeography() { mountGeography($('view-geography'), {...state, onChange: change=>{Object.assign(state,change);updateURL();}}); }
 function render() {
   if(!data)return;
   refreshFilters(); updateURL();
-  document.querySelectorAll('.hero, .context-note, .filters, .study-entry').forEach(el => el.hidden = state.tab === 'replication');
-  document.body.classList.toggle('study-open', state.tab === 'replication');
+  document.querySelectorAll('.hero, .context-note, .filters, .study-entry').forEach(el => el.hidden = ['replication','geography'].includes(state.tab));
+  document.body.classList.toggle('study-open', ['replication','geography'].includes(state.tab));
   document.querySelectorAll('.nav-item').forEach(el=>{el.classList.toggle('active',el.dataset.tab===state.tab);if(el.dataset.tab===state.tab)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
-  for(const tab of ['rates','compare','planner','methods','replication'])$(`view-${tab}`).hidden=tab!==state.tab;
-  ({rates:renderRates,compare:renderCompare,planner:renderPlanner,methods:renderMethods,replication:renderReplication})[state.tab]();
+  for(const tab of ['rates','compare','planner','methods','replication','geography'])$(`view-${tab}`).hidden=tab!==state.tab;
+  ({rates:renderRates,compare:renderCompare,planner:renderPlanner,methods:renderMethods,replication:renderReplication,geography:renderGeography})[state.tab]();
 }
 function reset() { Object.assign(state,{companies:['Waymo'],years:[2020,2021,2022,2023,2024],mode:'safety-driver',confidence:.95,unit:1000,method:'auto',context:'initiated_by'});plannerInitialized=false;render(); }
 document.addEventListener('click',e=>{

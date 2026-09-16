@@ -8,6 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='14' fill='%23097969'/%3E%3Cpath d='M12 35L24 11l12 24M17 26h14' stroke='white' stroke-width='4' fill='none'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="/waymo-project/style.css">
 <link rel="stylesheet" href="/waymo-project/replication.css">
+<link rel="stylesheet" href="/waymo-project/geography.css">
 <script type="module" src="/waymo-project/app.js"></script>
 </head>
 <body>
@@ -17,6 +18,7 @@
   <div class="nav-label">WORKSPACE <span>01</span></div>
   <nav aria-label="Analysis views">
     <button data-tab="replication" class="nav-item"><span class="nav-icon">◎</span>Published study<span class="nav-arrow">↗</span></button>
+    <button data-tab="geography" class="nav-item"><span class="nav-icon">◈</span>Exposure matching</button>
     <button data-tab="rates" class="nav-item active"><span class="nav-icon">◫</span>Rate explorer<span class="nav-arrow">↗</span></button>
     <button data-tab="compare" class="nav-item"><span class="nav-icon">⇄</span>Compare groups</button>
     <button data-tab="planner" class="nav-item"><span class="nav-icon">⌁</span>Experiment planner</button>
@@ -26,7 +28,7 @@
   <div class="sidebar-footer"><span class="status-dot"></span> Public data. Open methods.<a href="https://github.com/kushal-acharya/av-safety-rate-explorer" target="_blank" rel="noopener">View on GitHub ↗</a><small>Independent project · Not affiliated with Waymo</small></div>
 </aside>
 <div class="workspace">
-<header class="topbar"><div class="breadcrumb">Research projects <span>/</span> <strong>Autonomous vehicles</strong></div><div class="top-actions"><span class="version">V 1.2</span><button id="share" class="small-button" title="Copy a link to these filters">↗ <span>Share view</span></button></div></header>
+<header class="topbar"><div class="breadcrumb">Research projects <span>/</span> <strong>Autonomous vehicles</strong></div><div class="top-actions"><span class="version">V 1.3</span><button id="share" class="small-button" title="Copy a link to these filters">↗ <span>Share view</span></button></div></header>
 <main id="main" tabindex="-1">
   <section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="status-dot"></span> THE AUTONOMOUS VEHICLE EVIDENCE PROJECT</div><h1>Autonomy,<br><em>in perspective.</em></h1><p>Millions of miles. Rare events. Real uncertainty.<br>A clearer way to explore the evidence behind autonomous driving.</p><div class="hero-tags"><span>California DMV</span><span>2020–2024 snapshot</span><span>Open source</span></div></div>
   <div class="road-art" aria-hidden="true"><svg viewBox="0 0 440 285" fill="none"><defs><pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#bcd2c8"/></pattern><linearGradient id="roadFade"><stop stop-color="#80b5a5" stop-opacity="0"/><stop offset=".5" stop-color="#80b5a5" stop-opacity=".6"/><stop offset="1" stop-color="#80b5a5" stop-opacity="0"/></linearGradient></defs><rect width="440" height="285" fill="url(#grid)"/><path d="M-25 250C130 250 74 50 225 60S300 208 477 146" stroke="url(#roadFade)" stroke-width="79"/><path d="M-25 250C130 250 74 50 225 60S300 208 477 146" stroke="#f4faf6" stroke-width="74"/><path d="M-25 250C130 250 74 50 225 60S300 208 477 146" stroke="#b4cabe" stroke-width="1.5" stroke-dasharray="8 8"/><path d="M-25 231C109 231 89 27 239 42S327 188 477 127" stroke="#148573" stroke-width="2"/><circle cx="242" cy="64" r="58" fill="#168574" fill-opacity=".04" stroke="#168574" stroke-opacity=".13"/><circle cx="242" cy="64" r="40" stroke="#168574" stroke-opacity=".2"/><circle cx="242" cy="64" r="23" fill="#168574" fill-opacity=".12"/><g transform="translate(222 53) rotate(9 21 11)"><rect width="42" height="23" rx="9" fill="#fff" stroke="#1b6c5b" stroke-width="1.5"/><rect x="11" y="4" width="19" height="15" rx="4" fill="#24594b"/><path d="M15 5v13M27 5v13" stroke="#abd2c3"/><circle cx="21" cy="11.5" r="3" fill="#dbefe5"/></g><circle cx="113" cy="186" r="5" fill="#cf7650"/><circle cx="113" cy="186" r="11" stroke="#cf7650" stroke-opacity=".3"/><path d="M113 200v34h80" stroke="#cf7650" stroke-opacity=".6"/><text x="138" y="254" fill="#767f70" font-size="10" letter-spacing="1.5">OBSERVE. ESTIMATE. QUESTION.</text><path d="M307 31h48v25" stroke="#89aa9e"/><text x="318" y="21" fill="#457569" font-size="10" letter-spacing="1">CA / USA</text></svg><span class="art-caption">A FIELD GUIDE TO MEASURING AUTONOMY</span></div></section>
@@ -40,6 +42,7 @@
     <button id="reset" class="reset-button" title="Reset all filters" aria-label="Reset all filters">↺</button>
   </section>
   <div id="loading" class="empty-state">Loading the audited DMV snapshot…</div>
+  <section id="view-geography" class="view" hidden></section>
   <section id="view-replication" class="view" hidden></section>
   <section id="view-rates" class="view" hidden></section>
   <section id="view-compare" class="view" hidden></section>

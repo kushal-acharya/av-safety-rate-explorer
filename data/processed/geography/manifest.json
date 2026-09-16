@@ -1,0 +1,53 @@
+{
+  "study_id": "spatial-202412",
+  "release_date": "2025-03-19",
+  "retrieved_at": "2026-09-16T20:02:35.509297+00:00",
+  "period": "September 2020\u2013December 2024",
+  "benchmark_year": 2022,
+  "sources": [
+    {
+      "role": "miles",
+      "filename": "CSV1 - RO Miles per Location 202009-202412-2022benchmark.csv",
+      "url": "https://storage.googleapis.com/waymo-uploads/files/documents/safety/safety-impact-data/CSV1%20-%20RO%20Miles%20per%20Location%20202009-202412-2022benchmark.csv",
+      "sha256": "77ad89efa110a5dd24e12a375eea854ed737e62a0f26f43fc4907dfab397e1a6"
+    },
+    {
+      "role": "events",
+      "filename": "CSV2 - Crashes with SGO ID and Group Membership 202009-202412-2022benchmark.csv",
+      "url": "https://storage.googleapis.com/waymo-uploads/files/documents/safety/safety-impact-data/CSV2%20-%20Crashes%20with%20SGO%20ID%20and%20Group%20Membership%20202009-202412-2022benchmark.csv",
+      "sha256": "5a1a66d1c4a589a7d3ddb9ec371ff3b31465995d81f9924a2c8caa95fe0a84b8"
+    },
+    {
+      "role": "comparisons",
+      "filename": "CSV3 - Collision Counts and Comparison to Benchmarks 202009-202412-2022benchmark.csv",
+      "url": "https://storage.googleapis.com/waymo-uploads/files/documents/safety/safety-impact-data/CSV3%20-%20Collision%20Counts%20and%20Comparison%20to%20Benchmarks%20202009-202412-2022benchmark.csv",
+      "sha256": "6d1e84dddf05fe21a1be86ac6be957b8abe5348d7e7238afab5d8643f2a12950"
+    },
+    {
+      "role": "cells",
+      "filename": "CSV4 - Miles and Benchmark Crashes for Dynamic Benchmark 202009-202412-2022benchmark.csv",
+      "url": "https://storage.googleapis.com/waymo-uploads/files/documents/safety/safety-impact-data/CSV4%20-%20Miles%20and%20Benchmark%20Crashes%20for%20Dynamic%20Benchmark%20202009-202412-2022benchmark.csv",
+      "sha256": "3c1d02307330e0a78ae7155d7f5f9766e5f622f061cb46b0f6df397eb05f01d1"
+    }
+  ],
+  "processed_sha256": {
+    "cells.csv": "97ca46aa579e44fcf5e4caf544e85c74e5392f0b9b4548d0e84afd45aa1f27bc",
+    "city_inputs.csv": "26c2a7d54466866ab0811cb0d19bdfc65051c5f9eb609f7bd042e440bd905854",
+    "events.csv": "c6240cb43fa4b63aa7872ccef100ec60e934f0b55f2b3a59299845cc8cc163f9"
+  },
+  "method_url": "https://arxiv.org/abs/2410.08903",
+  "method_version": "2410.08903v1",
+  "release_notes_url": "https://storage.googleapis.com/waymo-uploads/files/documents/safety/safety-impact-data/Waymo_Safety_Impact_Data_Hub_Release_Notes_20260624.pdf",
+  "scope": "San Francisco, Phoenix and Los Angeles; Austin has no cell data in this release.",
+  "dependencies": [
+    "Published passenger-vehicle non-Dynamic benchmark rates, event classifications, HPMS mileage and allocated benchmark counts are supplied by Waymo.",
+    "The relative spatial factor is reconstructed; raw human crash records, mileage calibration and event adjudication are not independently reconstructed."
+  ],
+  "source_notes": [
+    "Retain all 523 event rows using source CSV row number; two missing SGO IDs and one ID repeated across cities are preserved, not deduplicated.",
+    "City totals are rounded to 0.001 million miles in CSV1. Cell mileage is lower than city totals; show the gap without assigning a cause.",
+    "Cell mileage is repeated across outcomes. Count unique geographic cells and use only the selected outcome when weighting.",
+    "Reporting-adjusted injury benchmarks already incorporate the publisher reporting adjustment. Do not apply it twice."
+  ],
+  "uncertainty": "Displayed scenario intervals condition on fixed benchmark rates, spatial weights and exposure. Only Waymo count uncertainty is included; published full rate-ratio intervals are not reproduced."
+}

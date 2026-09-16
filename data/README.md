@@ -60,3 +60,13 @@ Yes, Operator, In-Field Retrieval and mixed driver/system responses map to Unkno
 Interstate (On Ramp), Parking Facility and Rural Road have explicit corresponding groups.
 No event is discarded. All declared categories remain visible, including zero counts.
 Cause keyword categories retain their documented first-match rules and limitations.
+
+## Geographic exposure study
+
+The separate `processed/geography/` snapshot uses the March 19, 2025 Waymo Safety
+Impact release, covering September 2020–December 2024 with 2022 human benchmarks.
+Retrieved September 16, 2026 UTC. [Manifest](processed/geography/manifest.json)
+records all four source URLs and SHA-256 hashes. It contains 987 unique cells across
+SF, Phoenix and LA, three selected outcomes, all 523 source event rows and nine
+reference inputs. Austin lacks cell data. These sources are not joined to DMV
+mileage or the earlier publication study. [Full methodology](../docs/geographic-exposure.md).

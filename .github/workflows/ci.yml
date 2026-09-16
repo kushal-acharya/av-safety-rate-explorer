@@ -22,6 +22,7 @@ jobs:
       - run: uv run ruff check . && uv run ruff format --check .
       - run: uv run pytest -q
       - run: uv run python scripts/reproduce_study.py --check
+      - run: uv run python scripts/reproduce_geography.py --check
       - run: npm ci && npm test && npm run build
       - run: npx playwright install --with-deps chromium
       - name: Browser interaction checks
@@ -32,3 +33,4 @@ jobs:
             sleep 1
           done
           npm run test:browser
+          node scripts/test_accessibility.js

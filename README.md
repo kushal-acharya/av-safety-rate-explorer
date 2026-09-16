@@ -1,6 +1,7 @@
 # AV Evidence
 
 **[Open the publication study →](https://vivaran.news/waymo-project/?tab=replication)** ·
+[Exposure matching](https://vivaran.news/waymo-project/?tab=geography) ·
 [DMV explorer](https://vivaran.news/waymo-project/?tab=rates) · [Source data and audit](data/README.md)
 
 An independent AV evidence project: reproduce selected published Waymo **rider-only
@@ -17,6 +18,11 @@ population, outcomes and mileage; crash counts are never joined to DMV testing m
   checks match within the paper's stated tolerance. Inspect both the paper-code
   and Equation 2 interval conventions, follow event IDs to source pages, and
   download every input and audit result. [Technical note](docs/replication-study.md).
+- **Exposure matching:** reconstruct nine geographic human benchmarks across 987 cells
+  in San Francisco, Phoenix and Los Angeles. Explore mileage-distribution and benchmark
+  sensitivity, conditional count uncertainty, coverage gaps and downloadable provenance.
+  Uses the frozen December 2024 cohort with 2022 benchmarks, separate from the publication
+  study. [Technical note](docs/geographic-exposure.md).
 - **Rate explorer:** manufacturer/year/permit filters, 90/95/99% intervals, selectable
   exact Poisson or Negative Binomial estimation, zero-event upper bounds, and CSV export.
   Inspect initiator, location and cause categories with event shares, exact intervals,
@@ -118,6 +124,19 @@ gives a conventional 95% central interval under the model. Adjusted benchmark
 uncertainty limits coverage claims. [Full audit and limitations](docs/replication-study.md).
 
 ![Publication reproduction](assets/replication.png)
+
+## Reproduce geographic exposure matching
+
+```bash
+uv run python scripts/reproduce_geography.py --from-source --check
+```
+
+All nine dynamic benchmarks match within 1e-9 IPMM; nine source event counts match
+exactly. The baseline and event labels remain publisher-supplied. Scenario intervals
+include only Waymo count uncertainty, not human benchmark or weighting uncertainty.
+See the [calculation, coverage gaps and limitations](docs/geographic-exposure.md).
+
+![Geographic exposure matching](assets/geography.png)
 
 ## Rebuild the historical snapshot
 

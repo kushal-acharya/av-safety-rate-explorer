@@ -76,3 +76,10 @@
 - Primary result: 1 SF injury event / 1.755 million rider-only miles; rate ratio 0.097904 versus published 0.10. All four counts match exactly; 12 ratio/endpoint checks pass the publication's <0.01 tolerance.
 - The web study and Python CLI preserve separate paper-code and Equation 2 intervals, downloadable source rows, SHA-256 provenance, and a technical note. Author-supplied memberships and benchmark estimates are explicit dependencies.
 - Final screenshots refreshed. Ten-minute build checkpoint timer paused after delivery.
+
+## Geographic exposure matching — build checkpoint
+- Reconstructed all nine dynamic benchmarks from the matched March 19, 2025 release (through December 2024, 2022 human benchmarks). All nine event counts match.
+- Preserved 987 geographic cells, source row identities, cell-mileage coverage gaps and publisher baseline dependencies.
+- Added a sixth web view with distribution interpolation, benchmark stress testing, conditional count intervals, exposure-band charts and a fixed source audit.
+- Added reproducible source extraction, hash verification, downloadable data, technical documentation and 135 Python/JavaScript scenario comparisons.
+- Python: 57 tests pass. JavaScript: 11 suites pass. Browser and accessibility verification in progress; not deployed yet.
