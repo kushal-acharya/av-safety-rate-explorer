@@ -26,3 +26,9 @@
 - Implemented the four-tab Streamlit companion; 28 Python tests now pass, including widget smoke tests.
 - Browser statistics match independent Python reference vectors for Poisson intervals, conditional comparisons and experiment planning.
 - Desktop browser interactions pass. Final mobile layout refinements and deployment checks are in progress.
+
+## Publication checkpoint
+- Finished mobile filter/layout fixes and responsive charts.
+- Passed 28 Python tests, 6 JavaScript suites, all-view browser interactions and an automated WCAG A/AA scan across all four views.
+- Added GitHub Actions, screenshots, source documentation, security headers and install requirements.
+- Cloudflare deployment dry run passed; publishing and live verification are next.
