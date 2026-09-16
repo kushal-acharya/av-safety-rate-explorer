@@ -1,3 +1,4 @@
+import { mountReplication } from './replication-view.js';
 import { mountEventContext } from './context-view.js';
 import { poisson, zeroBound, ratio, plan, powerAt, interval } from './stats.js';
 
@@ -8,19 +9,21 @@ const compact = n => n >= 1e9 ? `${fmt(n / 1e9, 2)}B` : n >= 1e6 ? `${fmt(n / 1e
 const rateFmt = n => n === 0 ? '0' : n < .001 ? n.toExponential(2) : fmt(n, n < .1 ? 4 : 3);
 const options = (values, selected) => values.map(([v, label]) => `<option value="${esc(v)}" ${String(v) === String(selected) ? 'selected' : ''}>${esc(label)}</option>`).join('');
 let data;
-const state = { tab: 'rates', companies: ['Waymo'], years: [2020,2021,2022,2023,2024], mode: 'safety-driver', confidence: .95, unit: 1000, method: 'auto', context: 'initiated_by' };
+const state = { tab: 'rates', companies: ['Waymo'], years: [2020,2021,2022,2023,2024], mode: 'safety-driver', confidence: .95, unit: 1000, method: 'auto', context: 'initiated_by', study: 'sf-injury', tails: 'paper_code' };
 let plannerInitialized = false, compareA = '', compareB = '';
 const planner = { baseline: .08, reduction: 10, alpha: .05, power: .8, phi: 1, allocation: .5, twoSided: true };
 const params = new URLSearchParams(location.search);
-for (const k of ['tab','mode','method','context']) if (params.has(k)) state[k] = params.get(k);
+for (const k of ['tab','mode','method','context','study','tails']) if (params.has(k)) state[k] = params.get(k);
 if (params.has('companies')) state.companies = params.get('companies').split(',');
 if (params.has('years')) state.years = params.get('years').split(',').map(Number).filter(y=>y>=2020&&y<=2024);
 if ([.9,.95,.99].includes(Number(params.get('confidence')))) state.confidence = Number(params.get('confidence'));
 if ([1000,100000].includes(Number(params.get('unit')))) state.unit = Number(params.get('unit'));
-if (!['rates','compare','planner','methods'].includes(state.tab)) state.tab = 'rates';
+if (!['rates','compare','planner','methods','replication'].includes(state.tab)) state.tab = 'rates';
 if (!['safety-driver','driverless'].includes(state.mode)) state.mode = 'safety-driver';
 if (!['auto','poisson','nb'].includes(state.method)) state.method = 'auto';
 if (!['initiated_by','location','cause_category'].includes(state.context)) state.context = 'initiated_by';
+if (!['sf-injury','phx-injury','sf-police','phx-police'].includes(state.study)) state.study = 'sf-injury';
+if (!['paper_code','equation'].includes(state.tails)) state.tails = 'paper_code';
 const conf = () => `${Math.round(state.confidence * 100)}%`;
 const unitLabel = () => `per ${fmt(state.unit, 0)} miles`;
 const selectedRows = () => data.annual.filter(r => r.mode === state.mode && state.years.includes(r.year) && state.companies.includes(r.manufacturer) && r.eligible);
@@ -161,12 +164,27 @@ function renderMethods() {
   <article class="card method-card"><div class="method-number">06 / EXPERIMENT DESIGN</div><h3>Plan in miles. Think in events.</h3><p>For rates rA and rB, allocation f to arm A, and constant design effect φ, the planner uses a normal approximation to the difference in independent rates.</p><div class="formula">T = φ (zcrit + zpower)²<br> × [rA/f + rB/(1−f)] / (rA−rB)²</div><p>T is total miles across both arms. φ is a quasi-Poisson variance multiplier, not NB2 α. Expected events are rate × miles for each arm. With a baseline of 1 per 1,000 miles, 10% reduction, 80% power, 5% two-sided α, φ = 1 and equal allocation: about 2.983 million total miles.</p></article>
   <article class="card method-card method-wide"><div class="card-title"><div><div class="method-number">07 / SOURCE AUDIT</div><h3>Real data. Visible imperfections.</h3></div><span class="mini-badge">2020–2024 SNAPSHOT</span></div><div class="quality-grid"><div><strong>14</strong><span>Original DMV source files</span></div><div><strong>22,958</strong><span>Detailed disengagement records</span></div><div><strong>128 / 128</strong><span>Annual event totals reconciled</span></div></div><p>This versioned historical snapshot was retrieved September 16, 2026 UTC. It is not a live feed or a claim to include the latest reporting year. Raw file URLs, timestamps, and SHA-256 hashes are recorded in the manifest.</p><ul class="audit-list"><li>47 missing annual mileage cells were reconstructed from reported monthly values.</li><li>13 unparseable or out-of-period event dates are flagged and retained under the source reporting year.</li><li>One VIN reports events with zero mileage. Affected groups fall back to aggregate Poisson instead of fitting a different count.</li><li>Blank spreadsheet rows were removed, corporate aliases normalized, and zero-event vehicles retained.</li><li>All 128 annual event totals match the detailed event counts. No synthetic data is loaded.</li></ul><div class="source-links"><a href="https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/" target="_blank" rel="noopener">California DMV ↗</a><a href="/waymo-project/sources.json" download>↓ Source manifest</a><a href="/waymo-project/exposure.csv" download>↓ Annual data</a><a href="/waymo-project/audit.csv" download>↓ Audit log</a><a href="https://github.com/kushal-acharya/av-safety-rate-explorer" target="_blank" rel="noopener">Code, tests & Python app ↗</a></div><p class="caption">References: Garwood (1936), Biometrika 28:437–442; McCullagh & Nelder (1989), Generalized Linear Models; statsmodels NegativeBinomial (NB2); SciPy chi-square and binomial inference. Event context preserves every count, including Unknown labels. Its category rates use total selected exposure, since mileage by initiator, location or cause is unavailable. Cause labels are illustrative keyword matches, not adjudicated root causes. All statistical calculations are checked against the Python reference implementation.</p></article></div>`;
 }
+async function renderReplication(focus = null) {
+  await mountReplication($('view-replication'), {
+    comparison: state.study, convention: state.tails,
+    onChange: change => {
+      const active = document.activeElement?.id;
+      if (change.comparison) state.study = change.comparison;
+      if (change.convention) state.tails = change.convention;
+      updateURL();
+      renderReplication(active);
+    },
+  });
+  if (focus && state.tab === 'replication') $(focus)?.focus();
+}
 function render() {
   if(!data)return;
   refreshFilters(); updateURL();
+  document.querySelectorAll('.hero, .context-note, .filters, .study-entry').forEach(el => el.hidden = state.tab === 'replication');
+  document.body.classList.toggle('study-open', state.tab === 'replication');
   document.querySelectorAll('.nav-item').forEach(el=>{el.classList.toggle('active',el.dataset.tab===state.tab);if(el.dataset.tab===state.tab)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
-  for(const tab of ['rates','compare','planner','methods'])$(`view-${tab}`).hidden=tab!==state.tab;
-  ({rates:renderRates,compare:renderCompare,planner:renderPlanner,methods:renderMethods})[state.tab]();
+  for(const tab of ['rates','compare','planner','methods','replication'])$(`view-${tab}`).hidden=tab!==state.tab;
+  ({rates:renderRates,compare:renderCompare,planner:renderPlanner,methods:renderMethods,replication:renderReplication})[state.tab]();
 }
 function reset() { Object.assign(state,{companies:['Waymo'],years:[2020,2021,2022,2023,2024],mode:'safety-driver',confidence:.95,unit:1000,method:'auto',context:'initiated_by'});plannerInitialized=false;render(); }
 document.addEventListener('click',e=>{

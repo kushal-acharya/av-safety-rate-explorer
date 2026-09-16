@@ -21,7 +21,7 @@
     },
     "extraction": {
       "events.csv": "All 73 factual event/membership rows extracted from PDF pages 19\u201320, Appendix A.1. Empty early-event number for 30270-6341 retained; two pre-SGO rows receive victor-2023-1/4 identifiers. No deduplication or outcome relabeling.",
-      "comparisons.csv": "Four reference comparisons transcribed from Table 7 (p. 9) and Appendix A.3 Listing 2 (p. 22). Human exposure/rates from Table 2 (p. 6); precision of Waymo miles from Listing 2. Published ratio/limits are audit targets, never calculation inputs."
+      "comparisons.csv": "Four reference comparisons transcribed from Table 7 (p. 10) and Appendix A.3 Listing 2 (p. 22). Human exposure/rates from Table 2 (p. 6); precision of Waymo miles from Listing 2. Published ratio/limits are audit targets, never calculation inputs."
     },
     "limitations": [
       "The source is the versioned paper, not a fresh NHTSA download. Outcome and in-transport/impacted labels rely on the authors.",

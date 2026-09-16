@@ -61,3 +61,6 @@
 - Identified and explicitly separated Equation 2 (2.5% tails) from Listing 1 (1.25% tails for positive counts); no silent confidence relabeling.
 - The paper's labels and rounded benchmark estimates remain source inputs, not independently adjudicated facts. No DMV miles or newer crash records are joined to this cohort.
 - Next: build the interactive study view, document limitations, verify desktop/mobile and publish.
+- Built the separate publication view with source-linked event IDs, published-vs-reproduced audit, both interval conventions, and downloadable inputs/results.
+- Added the technical note and source-page references; Python 43 tests and all 9 existing JavaScript suites pass.
+- Browser, mobile and accessibility checks are in progress; the publication view is not yet deployed.
