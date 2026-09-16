@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "av-evidence",
+  "compatibility_date": "2026-09-15",
+  "workers_dev": true,
+  "routes": [
+    {"pattern": "vivaran.news/waymo-project", "zone_name": "vivaran.news"},
+    {"pattern": "vivaran.news/waymo-project/*", "zone_name": "vivaran.news"}
+  ],
+  "assets": {"directory": "./web"}
+}
