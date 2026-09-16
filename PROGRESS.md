@@ -67,3 +67,12 @@
 - All five web views pass automated accessibility scans; both existing and publication browser workflows pass, including export contents, shared state, filter isolation and failed-request recovery.
 - Linux CI exposed last-bit numerical differences around 1e-15. Study exports now use 12 decimal places after full-precision calculations and audit decisions, preserving deterministic artifacts across platforms.
 - Cloudflare dry run passes. Waiting for the updated Linux CI before production deployment.
+
+## Publication reproduction delivered — September 16, 2026
+- Live study: https://vivaran.news/waymo-project/?tab=replication&study=sf-injury&tails=paper_code
+- Cloudflare deployment: 19a5521d-1da4-444b-bb4c-87a450a5845d.
+- Linux GitHub Actions run 35119389161 passed on code commit 59d9395, including 43 Python tests, 9 JavaScript suites, deterministic study checks and both browser workflows.
+- Production browser workflows and automated accessibility scans across all five views passed. All five downloadable study files exactly match verified local artifacts.
+- Primary result: 1 SF injury event / 1.755 million rider-only miles; rate ratio 0.097904 versus published 0.10. All four counts match exactly; 12 ratio/endpoint checks pass the publication's <0.01 tolerance.
+- The web study and Python CLI preserve separate paper-code and Equation 2 intervals, downloadable source rows, SHA-256 provenance, and a technical note. Author-supplied memberships and benchmark estimates are explicit dependencies.
+- Final screenshots refreshed. Ten-minute build checkpoint timer paused after delivery.
