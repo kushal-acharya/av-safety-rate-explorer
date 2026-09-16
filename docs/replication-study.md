@@ -146,6 +146,10 @@ by the deployed website or offline calculation. Original PDFs remain gitignored.
 The browser renders the Python-generated artifact, avoiding a second implementation
 of these sensitive calculations in JavaScript.
 
+Exported numbers are rounded to 12 decimal places so last-bit differences between
+macOS and Linux numerical libraries do not change the artifacts. Calculations and
+reference-tolerance decisions use full precision before serialization.
+
 Tests include the published reference values; an independent beta/binomial identity;
 the zero-event closed-form upper bound; invalid inputs; hash drift; cohort accounting;
 and equality between freshly computed results and the browser's committed artifact.

@@ -1,15 +1,22 @@
 # AV Evidence
 
-**[Open the dashboard →](https://vivaran.news/waymo-project/)** · [Source data and audit](data/README.md)
+**[Open the publication study →](https://vivaran.news/waymo-project/?tab=replication)** ·
+[DMV explorer](https://vivaran.news/waymo-project/?tab=rates) · [Source data and audit](data/README.md)
 
-An independent, interactive explorer of California DMV autonomous-vehicle **disengagement**
-rates. Inspect rare-event uncertainty, compare reporting groups, and estimate the miles
-and expected events needed for a hypothetical two-arm experiment.
+An independent AV evidence project: reproduce selected published Waymo **rider-only
+crash comparisons**, explore California DMV **disengagement** rates, and plan the
+exposure needed for a hypothetical two-arm experiment. Each study keeps its own
+population, outcomes and mileage; crash counts are never joined to DMV testing miles.
 
 ![AV Evidence dashboard](assets/screenshot.png)
 
 ## What it does
 
+- **Published study:** recount 73 appendix events from a versioned Waymo paper and
+  reproduce four city/outcome reference comparisons. All 16 count/ratio/interval
+  checks match within the paper's stated tolerance. Inspect both the paper-code
+  and Equation 2 interval conventions, follow event IDs to source pages, and
+  download every input and audit result. [Technical note](docs/replication-study.md).
 - **Rate explorer:** manufacturer/year/permit filters, 90/95/99% intervals, selectable
   exact Poisson or Negative Binomial estimation, zero-event upper bounds, and CSV export.
   Inspect initiator, location and cause categories with event shares, exact intervals,
@@ -22,6 +29,12 @@ and expected events needed for a hypothetical two-arm experiment.
 - Responsive desktop/mobile interface with shareable filter URLs and a Python/Streamlit companion.
 
 ## Data
+
+The publication study freezes **arXiv:2312.12675v3** (October 24, 2024), covering
+rider-only operations through October 2023. The primary comparison is San Francisco
+any-injury-reported against the paper's adjusted human benchmark. Classifications
+and benchmark estimates remain author-supplied; this is a computational reproduction,
+not independent adjudication or a reconstruction of the original human databases.
 
 Historical **2020–2024** DMV testing reports, retrieved September 16, 2026 UTC.
 This is a versioned snapshot, not a live feed or the latest reporting year.
@@ -71,6 +84,7 @@ npx wrangler dev --port 8789
 ```bash
 uv run ruff check . && uv run ruff format --check .
 uv run pytest -q
+uv run python scripts/reproduce_study.py --check
 npm test
 npm run test:browser       # preview must be running; uses installed Chrome locally
 node scripts/test_accessibility.js
@@ -83,6 +97,27 @@ against SciPy, plus boundary handling. Browser tests exercise all views, filteri
 zero-event groups, event-context categories, invalid planner inputs, exports, share URLs
 and mobile overflow. Context tests reconcile every annual cell and preserve ambiguous labels.
 GitHub Actions installs Chromium and runs the core and browser tests on every push.
+
+## Reproduce the publication study
+
+```bash
+# Fetch/hash the frozen PDF, verify all 73 event rows and rebuild the study.
+uv run --group research python scripts/reproduce_study.py --from-source
+# Or rebuild offline from committed event rows and documented benchmark inputs.
+uv run python scripts/reproduce_study.py
+```
+
+The optional `research` dependency group supplies the PDF parser. The four benchmark
+and reference rows are transcribed from the paper; the extractor independently
+verifies event memberships. The browser displays Python-generated results.
+
+**Method finding:** the paper's Equation 2 uses 2.5% tails at alpha .05; its Appendix
+A.3 code uses 1.25% tails for positive counts. Both are explicitly implemented and
+displayed. The code reproduces the published reference cases, while the equation
+gives a conventional 95% central interval under the model. Adjusted benchmark
+uncertainty limits coverage claims. [Full audit and limitations](docs/replication-study.md).
+
+![Publication reproduction](assets/replication.png)
 
 ## Rebuild the historical snapshot
 
@@ -121,8 +156,9 @@ The planner assumes independent arms, known rates, fixed analysis and a transfer
 design effect; small expected counts, clustering and sequential monitoring need more work.
 
 The custom web UI and Cloudflare hosting follow the current request; the original Python
-statistical core and Streamlit companion remain runnable. Historical scope follows the
-supplied project prompt. No personal identity or Waymo affiliation is implied.
+statistical core and Streamlit companion remain runnable. The publication reproduction
+follows the subsequently requested research expansion and is available in the web UI
+and Python CLI. No personal identity or Waymo affiliation is implied.
 
-**Pitch:** “I built an interactive tool that estimates AV disengagement rates with
-uncertainty and shows the exposure needed to detect a hypothetical rate reduction.”
+**Pitch:** “I reproduced selected published AV crash-rate comparisons, exposed an
+interval-convention difference, and built an interactive tool to inspect the evidence.”

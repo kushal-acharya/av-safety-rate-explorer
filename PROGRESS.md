@@ -64,3 +64,6 @@
 - Built the separate publication view with source-linked event IDs, published-vs-reproduced audit, both interval conventions, and downloadable inputs/results.
 - Added the technical note and source-page references; Python 43 tests and all 9 existing JavaScript suites pass.
 - Browser, mobile and accessibility checks are in progress; the publication view is not yet deployed.
+- All five web views pass automated accessibility scans; both existing and publication browser workflows pass, including export contents, shared state, filter isolation and failed-request recovery.
+- Linux CI exposed last-bit numerical differences around 1e-15. Study exports now use 12 decimal places after full-precision calculations and audit decisions, preserving deterministic artifacts across platforms.
+- Cloudflare dry run passes. Waiting for the updated Linux CI before production deployment.

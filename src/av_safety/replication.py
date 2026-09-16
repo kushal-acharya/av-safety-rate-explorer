@@ -20,6 +20,19 @@ LOCATIONS = {"SFO": "San Francisco", "PHX": "Phoenix", "LA": "Los Angeles"}
 OUTCOMES = {"any_injury": "Any injury reported", "police_reported": "Police reported"}
 
 
+def _portable_snapshot(value):
+    """Serialize results to 12 decimals, ignoring platform differences around 1e-15.
+
+    Calculations and tolerance decisions occur before this export-only rounding.
+    Twelve decimals substantially exceed the precision of the published inputs.
+    """
+    if isinstance(value, dict):
+        return {key: _portable_snapshot(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [_portable_snapshot(item) for item in value]
+    return round(value, 12) if isinstance(value, float) else value
+
+
 def nelson_interval(
     events: int,
     miles: float,
@@ -149,27 +162,29 @@ def reproduce_study(directory: Path = STUDY_DIR) -> dict:
                 },
             }
         )
-    return {
-        "study_id": "kusano-7m-v3",
-        "primary_comparison": "sf-injury",
-        "title": "Reproducing a published safety result",
-        "publication": "Kusano et al. · 7.1 million rider-only miles",
-        "version": "arXiv v3 · October 24, 2024",
-        "period": "Through October 2023",
-        "paper_url": PAPER_URL,
-        "doi_url": "https://doi.org/10.1080/15389588.2024.2380786",
-        "scope": "Four city/outcome comparisons from Table 7 and Appendix A.3. "
-        "Primary: San Francisco, any-injury-reported, Blincoe-adjusted benchmark.",
-        "source_manifest": manifest,
-        "audit": {
-            "listed_events": len(events),
-            "in_transport_impacted": int(events.in_transport_impacted.sum()),
-            "any_injury": int(events.any_injury.sum()),
-            "police_reported": int(events.police_reported.sum()),
-            "pre_sgo_events": int((events.sgo_report_id == "").sum()),
-            "checks_passed": sum(c["matches"] for r in results for c in r["checks"]),
-            "checks_total": sum(len(r["checks"]) for r in results),
-        },
-        "comparisons": results,
-        "events": events.to_dict("records"),
-    }
+    return _portable_snapshot(
+        {
+            "study_id": "kusano-7m-v3",
+            "primary_comparison": "sf-injury",
+            "title": "Reproducing a published safety result",
+            "publication": "Kusano et al. · 7.1 million rider-only miles",
+            "version": "arXiv v3 · October 24, 2024",
+            "period": "Through October 2023",
+            "paper_url": PAPER_URL,
+            "doi_url": "https://doi.org/10.1080/15389588.2024.2380786",
+            "scope": "Four city/outcome comparisons from Table 7 and Appendix A.3. "
+            "Primary: San Francisco, any-injury-reported, Blincoe-adjusted benchmark.",
+            "source_manifest": manifest,
+            "audit": {
+                "listed_events": len(events),
+                "in_transport_impacted": int(events.in_transport_impacted.sum()),
+                "any_injury": int(events.any_injury.sum()),
+                "police_reported": int(events.police_reported.sum()),
+                "pre_sgo_events": int((events.sgo_report_id == "").sum()),
+                "checks_passed": sum(c["matches"] for r in results for c in r["checks"]),
+                "checks_total": sum(len(r["checks"]) for r in results),
+            },
+            "comparisons": results,
+            "events": events.to_dict("records"),
+        }
+    )
