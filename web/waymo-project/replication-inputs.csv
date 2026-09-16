@@ -1,0 +1,5 @@
+id,location,outcome,waymo_miles,benchmark_ipmm,benchmark_miles,published_count,published_ratio,published_lower,published_upper,source
+sf-injury,SFO,any_injury,1755000,5.82,862000000,1,0.10,0.001,0.62,Table 7; Appendix A.3 Listing 2
+phx-injury,PHX,any_injury,5343000,1.81,24865000000,3,0.31,0.05,1.01,Table 7; Appendix A.3 Listing 2
+sf-police,SFO,police_reported,1755000,5.86,862000000,3,0.29,0.05,0.95,Table 7; Appendix A.3 Listing 2
+phx-police,PHX,police_reported,5343000,4.31,24865000000,12,0.52,0.24,0.97,Table 7; Appendix A.3 Listing 2

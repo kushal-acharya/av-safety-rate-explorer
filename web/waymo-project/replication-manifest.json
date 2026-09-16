@@ -1,0 +1,24 @@
+{
+  "study_id": "kusano-7m-v3",
+  "retrieved_at": "2026-09-16T12:22:12.743451+00:00",
+  "source_url": "https://arxiv.org/pdf/2312.12675v3",
+  "source_sha256": "f25356e8ad1b1ff01f158f0bcce6e863aedbf52f84928268972e57dcc60ede5e",
+  "publication_version": "arXiv:2312.12675v3, October 24, 2024",
+  "study_end": "2023-10-31",
+  "processed_sha256": {
+    "events.csv": "ec67d6d64996f29dc8024b7dc5f995a132a07fe753ed5c798737ac7a03e0305d",
+    "comparisons.csv": "08cf996290c61ef0c1bc2faf42029bb091176d0ce0fc78e8d21cecb976151f06"
+  },
+  "extraction": {
+    "events.csv": "All 73 factual event/membership rows extracted from PDF pages 19\u201320, Appendix A.1. Empty early-event number for 30270-6341 retained; two pre-SGO rows receive victor-2023-1/4 identifiers. No deduplication or outcome relabeling.",
+    "comparisons.csv": "Four reference comparisons transcribed from Table 7 (p. 9) and Appendix A.3 Listing 2 (p. 22). Human exposure/rates from Table 2 (p. 6); precision of Waymo miles from Listing 2. Published ratio/limits are audit targets, never calculation inputs."
+  },
+  "limitations": [
+    "The source is the versioned paper, not a fresh NHTSA download. Outcome and in-transport/impacted labels rely on the authors.",
+    "Human benchmark rates are supplied rounded estimates and include an underreporting adjustment for injury. Human state crash records and VMT are not rebuilt.",
+    "This is a historical city-level benchmark comparison, not a spatially reweighted comparison or randomized release experiment.",
+    "Primary result is San Francisco any-injury-reported; the other three rows are companion reproduction checks. No aggregate 7.1M-mile estimate is claimed."
+  ],
+  "interval_audit": "Equation 2 uses alpha/2. Appendix A.3 Listing 1 first halves alpha for positive counts and then uses alpha/2, giving 0.0125 and 0.9875 at input alpha 0.05. Show both conventions; do not silently call Listing 1 a conventional 95% interval.",
+  "reference_tolerance": "Counts must match exactly. Absolute ratio/endpoint tolerance <0.01 follows Appendix A.3 Listing 2; source inputs and references are rounded."
+}

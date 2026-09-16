@@ -1,0 +1,17 @@
+comparison,quantity,published,reproduced,delta,tolerance,matches
+sf-injury,Included events,1.0,1.0,0.0,0.0,True
+sf-injury,Rate ratio,0.1,0.0979038779726065,-0.00209612202739351,0.01,True
+sf-injury,Ratio lower limit,0.001,0.001231267674872726,0.0002312676748727259,0.01,True
+sf-injury,Ratio upper limit,0.62,0.6250525035554708,0.005052503555470822,0.01,True
+phx-injury,Included events,3.0,3.0,0.0,0.0,True
+phx-injury,Rate ratio,0.31,0.3102112228216192,0.000211222821619228,0.01,True
+phx-injury,Ratio lower limit,0.05,0.0490216688254988,-0.000978331174501204,0.01,True
+phx-injury,Ratio upper limit,1.01,1.0071481404674776,-0.002851859532522427,0.01,True
+sf-police,Included events,3.0,3.0,0.0,0.0,True
+sf-police,Rate ratio,0.29,0.2917067763484146,0.001706776348414596,0.01,True
+sf-police,Ratio lower limit,0.05,0.04608319439109304,-0.003916805608906962,0.01,True
+sf-police,Ratio upper limit,0.95,0.9476316392846316,-0.0023683607153683894,0.01,True
+phx-police,Included events,12.0,12.0,0.0,0.0,True
+phx-police,Rate ratio,0.52,0.52109727453098,0.0010972745309799636,0.01,True
+phx-police,Ratio lower limit,0.24,0.24320541660032036,0.0032054166003203655,0.01,True
+phx-police,Ratio upper limit,0.97,0.9719275695375241,0.0019275695375241542,0.01,True

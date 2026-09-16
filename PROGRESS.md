@@ -52,3 +52,12 @@
 - Published v1.1 at the existing URL; Cloudflare deployment ab9b1c16-1e6d-4429-ba69-4d51094381b7.
 - Production browser checks passed, including context selection, share-link persistence, exports and zero-event behavior.
 - Captured the live event-context panel and refreshed screenshots. Build timer paused after this delivery.
+
+## Publication reproduction — research checkpoint
+- Selected Kusano et al. arXiv:2312.12675v3 (2024-10-24), covering rider-only operations through October 2023.
+- Primary result: San Francisco any-injury-reported comparison; three companion checks reproduce the Appendix A.3 reference cases.
+- Re-extracted all 73 appendix event rows, preserved the two pre-SGO events, and froze PDF/input SHA-256 hashes.
+- Recalculated counts and rate-ratio intervals independently from event rows and benchmark inputs: 16/16 reference checks pass using the source's <0.01 tolerance.
+- Identified and explicitly separated Equation 2 (2.5% tails) from Listing 1 (1.25% tails for positive counts); no silent confidence relabeling.
+- The paper's labels and rounded benchmark estimates remain source inputs, not independently adjudicated facts. No DMV miles or newer crash records are joined to this cohort.
+- Next: build the interactive study view, document limitations, verify desktop/mobile and publish.
