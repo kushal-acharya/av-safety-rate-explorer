@@ -83,3 +83,12 @@
 - Added a sixth web view with distribution interpolation, benchmark stress testing, conditional count intervals, exposure-band charts and a fixed source audit.
 - Added reproducible source extraction, hash verification, downloadable data, technical documentation and 135 Python/JavaScript scenario comparisons.
 - Python: 57 tests pass. JavaScript: 11 suites pass. Browser and accessibility verification in progress; not deployed yet.
+
+## Geographic exposure matching delivered — September 16, 2026
+- Live: https://vivaran.news/waymo-project/?tab=geography
+- Cloudflare version: 817ddb05-072b-4b23-8dfd-f109daaf45d3. Code commit: 91bc624.
+- GitHub Actions run 35144962422 passed on Linux: 57 Python tests, 11 JavaScript suites, both frozen-study artifact checks, all three browser workflows and six-view accessibility scanning.
+- Production browser workflows and all six automated accessibility scans passed. The six geography JSON/CSV downloads match local artifacts byte for byte.
+- Source refetch verified all four archived CSV hashes and exact normalized extraction.
+- SF airbag benchmark increases 29.5% under geographic matching; observed rate reduction changes from 82.5% to 86.5% (+4.0 percentage points). The displayed 95% interval includes only Waymo count uncertainty.
+- Refreshed desktop/mobile screenshots and documentation. All progress pushed; build checkpoint timer paused at delivery.

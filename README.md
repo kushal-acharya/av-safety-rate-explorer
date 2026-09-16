@@ -91,6 +91,7 @@ npx wrangler dev --port 8789
 uv run ruff check . && uv run ruff format --check .
 uv run pytest -q
 uv run python scripts/reproduce_study.py --check
+uv run python scripts/reproduce_geography.py --check
 npm test
 npm run test:browser       # preview must be running; uses installed Chrome locally
 node scripts/test_accessibility.js
@@ -99,7 +100,7 @@ node scripts/test_accessibility.js
 Python tests cover statistical reference values, validation, data reconciliation,
 deterministic rebuilds when raw files are present, and Streamlit widget interactions.
 JavaScript tests cross-check 63 Poisson intervals, 6 comparisons and 27 planner designs
-against SciPy, plus boundary handling. Browser tests exercise all views, filtering,
+against SciPy, plus boundary handling and 135 geographic sensitivity scenarios. Browser tests exercise all views, filtering,
 zero-event groups, event-context categories, invalid planner inputs, exports, share URLs
 and mobile overflow. Context tests reconcile every annual cell and preserve ambiguous labels.
 GitHub Actions installs Chromium and runs the core and browser tests on every push.
