@@ -1,0 +1,114 @@
+[
+  {
+    "year": 2020,
+    "mode": "safety-driver",
+    "kind": "events",
+    "url": "https://www.dmv.ca.gov/portal/file/2020-autonomous-vehicle-disengagement-reports-csv/",
+    "retrieved_at": "2026-09-16T00:36:25.037938+00:00",
+    "sha256": "07c320e5a926d99eabf279d6d7e0b9a45fe4d2471f8a152e9ed60b01028bee27"
+  },
+  {
+    "year": 2020,
+    "mode": "safety-driver",
+    "kind": "mileage",
+    "url": "https://www.dmv.ca.gov/portal/file/2020-autonomous-mileage-reports-csv/",
+    "retrieved_at": "2026-09-16T00:36:23.724827+00:00",
+    "sha256": "672ebafe7cf4ac08cdc3517b47974d3050ecc6584692e0811657cb8115303f9c"
+  },
+  {
+    "year": 2021,
+    "mode": "safety-driver",
+    "kind": "events",
+    "url": "https://www.dmv.ca.gov/portal/file/2021-autonomous-vehicle-disengagement-reports-csv/",
+    "retrieved_at": "2026-09-16T00:36:23.896302+00:00",
+    "sha256": "534d265b80f51a91ac5174790e6d2c6dcd45ecc45a574e4bdf598ac71f2bb3ff"
+  },
+  {
+    "year": 2021,
+    "mode": "safety-driver",
+    "kind": "mileage",
+    "url": "https://www.dmv.ca.gov/portal/file/2021-autonomous-mileage-reports-csv/",
+    "retrieved_at": "2026-09-16T00:36:23.893614+00:00",
+    "sha256": "dacfb9dfb8f967b781f453db8e8773f56383b815b2ae7e86554d81b16a6682a4"
+  },
+  {
+    "year": 2022,
+    "mode": "safety-driver",
+    "kind": "events",
+    "url": "https://www.dmv.ca.gov/portal/file/2022-autonomous-vehicle-disengagement-reports-csv/",
+    "retrieved_at": "2026-09-16T00:36:24.692320+00:00",
+    "sha256": "449a03cbf066b18569abc5e5c6e312b4df26cd31508998e09aad8b687c6482c0"
+  },
+  {
+    "year": 2022,
+    "mode": "safety-driver",
+    "kind": "mileage",
+    "url": "https://www.dmv.ca.gov/portal/file/2022-autonomous-mileage-reports-csv/",
+    "retrieved_at": "2026-09-16T00:36:24.753918+00:00",
+    "sha256": "51702c1b98a5067642d9f8fde5445dfe27cb9b284b23c94031cbb6e1a2143280"
+  },
+  {
+    "year": 2023,
+    "mode": "safety-driver",
+    "kind": "events",
+    "url": "https://www.dmv.ca.gov/portal/file/2023-autonomous-vehicle-disengagement-reports-csv/",
+    "retrieved_at": "2026-09-16T00:36:25.418724+00:00",
+    "sha256": "13b25ecfb3ddc8b76d554e382f11424d66c9331cbca0423b459d25cf7bdfd597"
+  },
+  {
+    "year": 2023,
+    "mode": "safety-driver",
+    "kind": "mileage",
+    "url": "https://www.dmv.ca.gov/portal/file/2023-autonomous-mileage-reports-csv/",
+    "retrieved_at": "2026-09-16T00:36:26.120694+00:00",
+    "sha256": "596b8087641e110ce0dca49ed1c917b383e1909c4842ef11aa1ded80acf5e209"
+  },
+  {
+    "year": 2023,
+    "mode": "driverless",
+    "kind": "events",
+    "url": "https://www.dmv.ca.gov/portal/file/2023-autonomous-vehicle-disengagement-reports-csvdriverless/",
+    "retrieved_at": "2026-09-16T00:36:25.526369+00:00",
+    "sha256": "6b6afdb105932bc7f43d00995b5dc9ca34e7e6688e4d8b1c3867b8db25c75bed"
+  },
+  {
+    "year": 2023,
+    "mode": "driverless",
+    "kind": "mileage",
+    "url": "https://www.dmv.ca.gov/portal/file/2023-autonomous-mileage-reports-csvdriverless/",
+    "retrieved_at": "2026-09-16T00:36:25.780402+00:00",
+    "sha256": "0fa710924acbdbd5540fcf031506513932e80650126e51e58abee9ffac0aa2a4"
+  },
+  {
+    "year": 2024,
+    "mode": "safety-driver",
+    "kind": "events",
+    "url": "https://www.dmv.ca.gov/portal/file/2024-autonomous-vehicle-disengagement-reports-csv/",
+    "retrieved_at": "2026-09-16T00:36:25.954720+00:00",
+    "sha256": "937fcc119e8782b52fe152c94aab2c72baa93a7283fa918add2dff13f40d7bb5"
+  },
+  {
+    "year": 2024,
+    "mode": "safety-driver",
+    "kind": "mileage",
+    "url": "https://www.dmv.ca.gov/portal/file/2024-autonomous-mileage-reports-csv/",
+    "retrieved_at": "2026-09-16T00:36:26.341996+00:00",
+    "sha256": "862b861a2508f5c312540256a0e6422848112d552cbf5af1e78e1af503e12f55"
+  },
+  {
+    "year": 2024,
+    "mode": "driverless",
+    "kind": "events",
+    "url": "https://www.dmv.ca.gov/portal/file/2024-autonomous-vehicle-disengagement-reports-csvdriverless/",
+    "retrieved_at": "2026-09-16T00:36:26.488374+00:00",
+    "sha256": "92b76e0761ac9f7fd038a07f546116379b5f9b103ff1c2dc633619431e58d7c5"
+  },
+  {
+    "year": 2024,
+    "mode": "driverless",
+    "kind": "mileage",
+    "url": "https://www.dmv.ca.gov/portal/file/2024-autonomous-mileage-reports-csvdriverless/",
+    "retrieved_at": "2026-09-16T00:36:26.844234+00:00",
+    "sha256": "2e6de109800a13f89b6fdfee0a349715525a937827774d979847f3ebd91bd05e"
+  }
+]

@@ -5,3 +5,10 @@
 - Scaffolded the reproducible Python project and web deployment tools.
 - Initial lint and package smoke test pass; Streamlit server started.
 - Next: download and audit all historical datasets; implement exact statistical functions.
+
+## Data and statistical core
+- Downloaded all 14 real DMV CSVs for 2020–2024; committed source manifest with hashes.
+- Reconciled all 128 annual manufacturer/mode/year event totals with detailed records.
+- Processed 22,958 events and 10,092 VIN-year rows; recorded 13 date anomalies and one zero-exposure event unit.
+- Implemented Garwood intervals, one-sided zero-event bounds, NB2 with exposure, dispersion diagnostics, exact conditional comparison tests, and the normal-approximate experiment planner.
+- Public GitHub repository created; source-only checkpoint pushes underway.

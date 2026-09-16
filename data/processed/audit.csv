@@ -1,0 +1,23 @@
+year,mode,issue,rows
+2020,safety-driver,annual miles from monthly sum,0
+2020,safety-driver,missing exposure/count excluded,0
+2020,safety-driver,unparseable/out-of-period detail date,0
+2021,safety-driver,annual miles from monthly sum,0
+2021,safety-driver,missing exposure/count excluded,0
+2021,safety-driver,unparseable/out-of-period detail date,9
+2022,safety-driver,annual miles from monthly sum,0
+2022,safety-driver,missing exposure/count excluded,0
+2022,safety-driver,unparseable/out-of-period detail date,3
+2023,driverless,annual miles from monthly sum,0
+2023,driverless,missing exposure/count excluded,0
+2023,driverless,unparseable/out-of-period detail date,0
+2023,safety-driver,annual miles from monthly sum,47
+2023,safety-driver,missing exposure/count excluded,0
+2023,safety-driver,unparseable/out-of-period detail date,0
+2024,driverless,annual miles from monthly sum,0
+2024,driverless,missing exposure/count excluded,0
+2024,driverless,unparseable/out-of-period detail date,0
+2024,safety-driver,annual miles from monthly sum,0
+2024,safety-driver,missing exposure/count excluded,0
+2024,safety-driver,unparseable/out-of-period detail date,1
+0,all,zero-mile VINs with positive events,1
