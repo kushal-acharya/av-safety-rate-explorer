@@ -32,3 +32,13 @@
 - Passed 28 Python tests, 6 JavaScript suites, all-view browser interactions and an automated WCAG A/AA scan across all four views.
 - Added GitHub Actions, screenshots, source documentation, security headers and install requirements.
 - Cloudflare deployment dry run passed; publishing and live verification are next.
+
+## Delivered — September 16, 2026
+- Published https://vivaran.news/waymo-project/ on Cloudflare Worker av-evidence.
+- Deployment version: db66a6f2-e853-4ad3-b662-11e30e42d0f8.
+- Requested path redirects to the canonical trailing-slash URL; production returns HTTP 200.
+- Production browser interactions and all four automated accessibility scans pass.
+- Fresh GitHub clone passes 28 Python tests and the JavaScript reference suites.
+- GitHub Actions run 35070357578 passed, including Linux Chromium interaction tests.
+- Build checkpoint automation paused after delivery; all source and progress saved to GitHub.
+- Scope: versioned 2020–2024 disengagement data, not crash data or live safety rankings. Hosted UI is the custom dashboard; the Streamlit companion runs from the same repository.
