@@ -1,0 +1,1570 @@
+{
+  "poisson": [
+    {
+      "args": [
+        0,
+        0.01,
+        0.1
+      ],
+      "result": {
+        "rate": 0.0,
+        "lower": 0.0,
+        "upper": 299.573227355399,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        0,
+        0.01,
+        0.05
+      ],
+      "result": {
+        "rate": 0.0,
+        "lower": 0.0,
+        "upper": 368.88794541139356,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        0,
+        0.01,
+        0.01
+      ],
+      "result": {
+        "rate": 0.0,
+        "lower": 0.0,
+        "upper": 529.8317366548036,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        0,
+        1000,
+        0.1
+      ],
+      "result": {
+        "rate": 0.0,
+        "lower": 0.0,
+        "upper": 0.00299573227355399,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        0,
+        1000,
+        0.05
+      ],
+      "result": {
+        "rate": 0.0,
+        "lower": 0.0,
+        "upper": 0.0036888794541139356,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        0,
+        1000,
+        0.01
+      ],
+      "result": {
+        "rate": 0.0,
+        "lower": 0.0,
+        "upper": 0.005298317366548036,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        0,
+        100000000.0,
+        0.1
+      ],
+      "result": {
+        "rate": 0.0,
+        "lower": 0.0,
+        "upper": 2.99573227355399e-08,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        0,
+        100000000.0,
+        0.05
+      ],
+      "result": {
+        "rate": 0.0,
+        "lower": 0.0,
+        "upper": 3.688879454113936e-08,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        0,
+        100000000.0,
+        0.01
+      ],
+      "result": {
+        "rate": 0.0,
+        "lower": 0.0,
+        "upper": 5.2983173665480366e-08,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1,
+        0.01,
+        0.1
+      ],
+      "result": {
+        "rate": 100.0,
+        "lower": 5.129329438755053,
+        "upper": 474.3864518390577,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1,
+        0.01,
+        0.05
+      ],
+      "result": {
+        "rate": 100.0,
+        "lower": 2.5317807984289877,
+        "upper": 557.1643390938898,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1,
+        0.01,
+        0.01
+      ],
+      "result": {
+        "rate": 100.0,
+        "lower": 0.5012541823544282,
+        "upper": 743.0129500280121,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1,
+        1000,
+        0.1
+      ],
+      "result": {
+        "rate": 0.001,
+        "lower": 5.129329438755053e-05,
+        "upper": 0.004743864518390577,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1,
+        1000,
+        0.05
+      ],
+      "result": {
+        "rate": 0.001,
+        "lower": 2.5317807984289875e-05,
+        "upper": 0.005571643390938898,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1,
+        1000,
+        0.01
+      ],
+      "result": {
+        "rate": 0.001,
+        "lower": 5.012541823544282e-06,
+        "upper": 0.007430129500280122,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1,
+        100000000.0,
+        0.1
+      ],
+      "result": {
+        "rate": 1e-08,
+        "lower": 5.129329438755053e-10,
+        "upper": 4.743864518390577e-08,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1,
+        100000000.0,
+        0.05
+      ],
+      "result": {
+        "rate": 1e-08,
+        "lower": 2.531780798428988e-10,
+        "upper": 5.571643390938898e-08,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1,
+        100000000.0,
+        0.01
+      ],
+      "result": {
+        "rate": 1e-08,
+        "lower": 5.012541823544282e-11,
+        "upper": 7.430129500280121e-08,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        5,
+        0.01,
+        0.1
+      ],
+      "result": {
+        "rate": 500.0,
+        "lower": 197.014956805953,
+        "upper": 1051.3034908741533,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        5,
+        0.01,
+        0.05
+      ],
+      "result": {
+        "rate": 500.0,
+        "lower": 162.34863901184204,
+        "upper": 1166.833207932267,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        5,
+        0.01,
+        0.01
+      ],
+      "result": {
+        "rate": 500.0,
+        "lower": 107.79282406523194,
+        "upper": 1414.9759411023012,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        5,
+        1000,
+        0.1
+      ],
+      "result": {
+        "rate": 0.005,
+        "lower": 0.0019701495680595304,
+        "upper": 0.010513034908741534,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        5,
+        1000,
+        0.05
+      ],
+      "result": {
+        "rate": 0.005,
+        "lower": 0.0016234863901184204,
+        "upper": 0.01166833207932267,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        5,
+        1000,
+        0.01
+      ],
+      "result": {
+        "rate": 0.005,
+        "lower": 0.0010779282406523194,
+        "upper": 0.014149759411023012,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        5,
+        100000000.0,
+        0.1
+      ],
+      "result": {
+        "rate": 5e-08,
+        "lower": 1.9701495680595302e-08,
+        "upper": 1.0513034908741535e-07,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        5,
+        100000000.0,
+        0.05
+      ],
+      "result": {
+        "rate": 5e-08,
+        "lower": 1.6234863901184206e-08,
+        "upper": 1.1668332079322671e-07,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        5,
+        100000000.0,
+        0.01
+      ],
+      "result": {
+        "rate": 5e-08,
+        "lower": 1.0779282406523193e-08,
+        "upper": 1.414975941102301e-07,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        50,
+        0.01,
+        0.1
+      ],
+      "result": {
+        "rate": 5000.0,
+        "lower": 3896.473258250863,
+        "upper": 6328.707409574717,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        50,
+        0.01,
+        0.05
+      ],
+      "result": {
+        "rate": 5000.0,
+        "lower": 3711.0963737461866,
+        "upper": 6591.876666433682,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        50,
+        0.01,
+        0.01
+      ],
+      "result": {
+        "rate": 5000.0,
+        "lower": 3366.378165273958,
+        "upper": 7126.608847545108,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        50,
+        1000,
+        0.1
+      ],
+      "result": {
+        "rate": 0.05,
+        "lower": 0.038964732582508634,
+        "upper": 0.06328707409574716,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        50,
+        1000,
+        0.05
+      ],
+      "result": {
+        "rate": 0.05,
+        "lower": 0.037110963737461866,
+        "upper": 0.06591876666433681,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        50,
+        1000,
+        0.01
+      ],
+      "result": {
+        "rate": 0.05,
+        "lower": 0.03366378165273958,
+        "upper": 0.07126608847545109,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        50,
+        100000000.0,
+        0.1
+      ],
+      "result": {
+        "rate": 5e-07,
+        "lower": 3.896473258250863e-07,
+        "upper": 6.328707409574716e-07,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        50,
+        100000000.0,
+        0.05
+      ],
+      "result": {
+        "rate": 5e-07,
+        "lower": 3.7110963737461864e-07,
+        "upper": 6.591876666433681e-07,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        50,
+        100000000.0,
+        0.01
+      ],
+      "result": {
+        "rate": 5e-07,
+        "lower": 3.366378165273958e-07,
+        "upper": 7.126608847545109e-07,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        244,
+        0.01,
+        0.1
+      ],
+      "result": {
+        "rate": 24400.0,
+        "lower": 21888.751105523705,
+        "upper": 27130.188833326145,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        244,
+        0.01,
+        0.05
+      ],
+      "result": {
+        "rate": 24400.0,
+        "lower": 21434.225696105717,
+        "upper": 27661.418625343616,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        244,
+        0.01,
+        0.01
+      ],
+      "result": {
+        "rate": 24400.0,
+        "lower": 20564.337915546956,
+        "upper": 28719.394471322157,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        244,
+        1000,
+        0.1
+      ],
+      "result": {
+        "rate": 0.244,
+        "lower": 0.21888751105523704,
+        "upper": 0.27130188833326147,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        244,
+        1000,
+        0.05
+      ],
+      "result": {
+        "rate": 0.244,
+        "lower": 0.21434225696105716,
+        "upper": 0.2766141862534362,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        244,
+        1000,
+        0.01
+      ],
+      "result": {
+        "rate": 0.244,
+        "lower": 0.20564337915546957,
+        "upper": 0.28719394471322157,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        244,
+        100000000.0,
+        0.1
+      ],
+      "result": {
+        "rate": 2.44e-06,
+        "lower": 2.1888751105523706e-06,
+        "upper": 2.7130188833326143e-06,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        244,
+        100000000.0,
+        0.05
+      ],
+      "result": {
+        "rate": 2.44e-06,
+        "lower": 2.1434225696105715e-06,
+        "upper": 2.766141862534362e-06,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        244,
+        100000000.0,
+        0.01
+      ],
+      "result": {
+        "rate": 2.44e-06,
+        "lower": 2.056433791554696e-06,
+        "upper": 2.871939447132216e-06,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1000,
+        0.01,
+        0.1
+      ],
+      "result": {
+        "rate": 100000.0,
+        "lower": 94855.98493836512,
+        "upper": 105360.31221333008,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1000,
+        0.01,
+        0.05
+      ],
+      "result": {
+        "rate": 100000.0,
+        "lower": 93897.30184076952,
+        "upper": 106395.21360163018,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1000,
+        0.01,
+        0.01
+      ],
+      "result": {
+        "rate": 100000.0,
+        "lower": 92042.40461633592,
+        "upper": 108437.28680643892,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1000,
+        1000,
+        0.1
+      ],
+      "result": {
+        "rate": 1.0,
+        "lower": 0.9485598493836511,
+        "upper": 1.0536031221333007,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1000,
+        1000,
+        0.05
+      ],
+      "result": {
+        "rate": 1.0,
+        "lower": 0.9389730184076952,
+        "upper": 1.0639521360163018,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1000,
+        1000,
+        0.01
+      ],
+      "result": {
+        "rate": 1.0,
+        "lower": 0.9204240461633592,
+        "upper": 1.0843728680643892,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1000,
+        100000000.0,
+        0.1
+      ],
+      "result": {
+        "rate": 1e-05,
+        "lower": 9.485598493836511e-06,
+        "upper": 1.0536031221333008e-05,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1000,
+        100000000.0,
+        0.05
+      ],
+      "result": {
+        "rate": 1e-05,
+        "lower": 9.389730184076952e-06,
+        "upper": 1.0639521360163018e-05,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        1000,
+        100000000.0,
+        0.01
+      ],
+      "result": {
+        "rate": 1e-05,
+        "lower": 9.204240461633592e-06,
+        "upper": 1.0843728680643891e-05,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        10000,
+        0.01,
+        0.1
+      ],
+      "result": {
+        "rate": 1000000.0,
+        "lower": 983608.5110855192,
+        "upper": 1016606.013612707,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        10000,
+        0.01,
+        0.05
+      ],
+      "result": {
+        "rate": 1000000.0,
+        "lower": 980495.2467260184,
+        "upper": 1019795.1624661473,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        10000,
+        0.01,
+        0.01
+      ],
+      "result": {
+        "rate": 1000000.0,
+        "lower": 974429.5609572955,
+        "upper": 1026047.3826873618,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        10000,
+        1000,
+        0.1
+      ],
+      "result": {
+        "rate": 10.0,
+        "lower": 9.836085110855192,
+        "upper": 10.16606013612707,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        10000,
+        1000,
+        0.05
+      ],
+      "result": {
+        "rate": 10.0,
+        "lower": 9.804952467260184,
+        "upper": 10.197951624661473,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        10000,
+        1000,
+        0.01
+      ],
+      "result": {
+        "rate": 10.0,
+        "lower": 9.744295609572955,
+        "upper": 10.260473826873618,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        10000,
+        100000000.0,
+        0.1
+      ],
+      "result": {
+        "rate": 0.0001,
+        "lower": 9.836085110855192e-05,
+        "upper": 0.00010166060136127072,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        10000,
+        100000000.0,
+        0.05
+      ],
+      "result": {
+        "rate": 0.0001,
+        "lower": 9.804952467260184e-05,
+        "upper": 0.00010197951624661473,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    },
+    {
+      "args": [
+        10000,
+        100000000.0,
+        0.01
+      ],
+      "result": {
+        "rate": 0.0001,
+        "lower": 9.744295609572954e-05,
+        "upper": 0.00010260473826873618,
+        "method": "Poisson exact",
+        "dispersion": 0.0,
+        "warning": ""
+      }
+    }
+  ],
+  "ratio": [
+    {
+      "args": [
+        0,
+        1000,
+        0,
+        2000
+      ],
+      "result": {
+        "ratio": null,
+        "lower": 0.0,
+        "upper": null,
+        "p": 1.0,
+        "method": "Not identifiable: both groups have zero events"
+      }
+    },
+    {
+      "args": [
+        5,
+        1000,
+        0,
+        1000
+      ],
+      "result": {
+        "ratio": 0.0,
+        "lower": 0.0,
+        "upper": 1.091279105182546,
+        "p": 0.0625,
+        "method": "Exact conditional (zero-count case)"
+      }
+    },
+    {
+      "args": [
+        0,
+        2000,
+        20,
+        1000
+      ],
+      "result": {
+        "ratio": null,
+        "lower": 9.874124473756453,
+        "upper": null,
+        "p": 2.867971990792438e-10,
+        "method": "Exact conditional (zero-count case)"
+      }
+    },
+    {
+      "args": [
+        20,
+        1000,
+        40,
+        2000
+      ],
+      "result": {
+        "ratio": 1.0,
+        "lower": 0.5846404458918547,
+        "upper": 1.7104529921369438,
+        "p": 1.0,
+        "method": "Log-Wald CI; exact conditional Poisson p-value"
+      }
+    },
+    {
+      "args": [
+        244,
+        2389565.2,
+        212,
+        3669962.4
+      ],
+      "result": {
+        "ratio": 0.5657223082176537,
+        "lower": 0.4706347034960799,
+        "upper": 0.6800215276045315,
+        "p": 1.642329237289667e-09,
+        "method": "Log-Wald CI; exact conditional Poisson p-value"
+      }
+    },
+    {
+      "args": [
+        1000,
+        5000,
+        1800,
+        9000
+      ],
+      "result": {
+        "ratio": 1.0,
+        "lower": 0.9256102566974395,
+        "upper": 1.0803683221575158,
+        "p": 1.0,
+        "method": "Log-Wald CI; exact conditional Poisson p-value"
+      }
+    }
+  ],
+  "plan": [
+    {
+      "args": [
+        1e-06,
+        0.01,
+        0.05,
+        0.8,
+        1,
+        0.5,
+        true
+      ],
+      "result": {
+        "miles_a": 156192706713.54984,
+        "miles_b": 156192706713.54984,
+        "total_miles": 312385413427.0997,
+        "events_a": 156192.70671354982,
+        "events_b": 154630.77964641433,
+        "design_effect": 1
+      }
+    },
+    {
+      "args": [
+        1e-06,
+        0.01,
+        0.01,
+        0.95,
+        5,
+        0.3,
+        true
+      ],
+      "result": {
+        "miles_a": 1268622993329.8638,
+        "miles_b": 2960120317769.682,
+        "total_miles": 4228743311099.5464,
+        "events_a": 1268622.9933298638,
+        "events_b": 2930519.1145919855,
+        "design_effect": 5
+      }
+    },
+    {
+      "args": [
+        1e-06,
+        0.01,
+        0.1,
+        0.9,
+        2,
+        0.7,
+        false
+      ],
+      "result": {
+        "miles_a": 434900745131.67957,
+        "miles_b": 186386033627.8627,
+        "total_miles": 621286778759.5422,
+        "events_a": 434900.7451316795,
+        "events_b": 184522.17329158407,
+        "design_effect": 2
+      }
+    },
+    {
+      "args": [
+        1e-06,
+        0.1,
+        0.05,
+        0.8,
+        1,
+        0.5,
+        true
+      ],
+      "result": {
+        "miles_a": 1491287149.526327,
+        "miles_b": 1491287149.526327,
+        "total_miles": 2982574299.052654,
+        "events_a": 1491.2871495263269,
+        "events_b": 1342.1584345736942,
+        "design_effect": 1
+      }
+    },
+    {
+      "args": [
+        1e-06,
+        0.1,
+        0.01,
+        0.95,
+        5,
+        0.3,
+        true
+      ],
+      "result": {
+        "miles_a": 12342671048.44478,
+        "miles_b": 28799565779.704487,
+        "total_miles": 41142236828.14927,
+        "events_a": 12342.67104844478,
+        "events_b": 25919.609201734038,
+        "design_effect": 5
+      }
+    },
+    {
+      "args": [
+        1e-06,
+        0.1,
+        0.1,
+        0.9,
+        2,
+        0.7,
+        false
+      ],
+      "result": {
+        "miles_a": 4073088549.5715437,
+        "miles_b": 1745609378.3878047,
+        "total_miles": 5818697927.959349,
+        "events_a": 4073.0885495715434,
+        "events_b": 1571.0484405490242,
+        "design_effect": 2
+      }
+    },
+    {
+      "args": [
+        1e-06,
+        0.5,
+        0.05,
+        0.8,
+        1,
+        0.5,
+        true
+      ],
+      "result": {
+        "miles_a": 47093278.40609453,
+        "miles_b": 47093278.40609453,
+        "total_miles": 94186556.81218906,
+        "events_a": 47.09327840609453,
+        "events_b": 23.546639203047263,
+        "design_effect": 1
+      }
+    },
+    {
+      "args": [
+        1e-06,
+        0.5,
+        0.01,
+        0.95,
+        5,
+        0.3,
+        true
+      ],
+      "result": {
+        "miles_a": 432629706.8527036,
+        "miles_b": 1009469315.9896415,
+        "total_miles": 1442099022.8423452,
+        "events_a": 432.6297068527036,
+        "events_b": 504.73465799482074,
+        "design_effect": 5
+      }
+    },
+    {
+      "args": [
+        1e-06,
+        0.5,
+        0.1,
+        0.9,
+        2,
+        0.7,
+        false
+      ],
+      "result": {
+        "miles_a": 113871292.78372058,
+        "miles_b": 48801982.62159455,
+        "total_miles": 162673275.40531513,
+        "events_a": 113.87129278372058,
+        "events_b": 24.400991310797274,
+        "design_effect": 2
+      }
+    },
+    {
+      "args": [
+        0.001,
+        0.01,
+        0.05,
+        0.8,
+        1,
+        0.5,
+        true
+      ],
+      "result": {
+        "miles_a": 156192706.71354604,
+        "miles_b": 156192706.71354604,
+        "total_miles": 312385413.4270921,
+        "events_a": 156192.70671354604,
+        "events_b": 154630.77964641058,
+        "design_effect": 1
+      }
+    },
+    {
+      "args": [
+        0.001,
+        0.01,
+        0.01,
+        0.95,
+        5,
+        0.3,
+        true
+      ],
+      "result": {
+        "miles_a": 1268622993.329833,
+        "miles_b": 2960120317.7696104,
+        "total_miles": 4228743311.0994434,
+        "events_a": 1268622.993329833,
+        "events_b": 2930519.114591914,
+        "design_effect": 5
+      }
+    },
+    {
+      "args": [
+        0.001,
+        0.01,
+        0.1,
+        0.9,
+        2,
+        0.7,
+        false
+      ],
+      "result": {
+        "miles_a": 434900745.13166904,
+        "miles_b": 186386033.6278582,
+        "total_miles": 621286778.7595272,
+        "events_a": 434900.74513166904,
+        "events_b": 184522.17329157962,
+        "design_effect": 2
+      }
+    },
+    {
+      "args": [
+        0.001,
+        0.1,
+        0.05,
+        0.8,
+        1,
+        0.5,
+        true
+      ],
+      "result": {
+        "miles_a": 1491287.1495263288,
+        "miles_b": 1491287.1495263288,
+        "total_miles": 2982574.2990526576,
+        "events_a": 1491.287149526329,
+        "events_b": 1342.158434573696,
+        "design_effect": 1
+      }
+    },
+    {
+      "args": [
+        0.001,
+        0.1,
+        0.01,
+        0.95,
+        5,
+        0.3,
+        true
+      ],
+      "result": {
+        "miles_a": 12342671.048444798,
+        "miles_b": 28799565.779704526,
+        "total_miles": 41142236.828149326,
+        "events_a": 12342.671048444798,
+        "events_b": 25919.609201734074,
+        "design_effect": 5
+      }
+    },
+    {
+      "args": [
+        0.001,
+        0.1,
+        0.1,
+        0.9,
+        2,
+        0.7,
+        false
+      ],
+      "result": {
+        "miles_a": 4073088.5495715486,
+        "miles_b": 1745609.378387807,
+        "total_miles": 5818697.9279593555,
+        "events_a": 4073.088549571549,
+        "events_b": 1571.0484405490263,
+        "design_effect": 2
+      }
+    },
+    {
+      "args": [
+        0.001,
+        0.5,
+        0.05,
+        0.8,
+        1,
+        0.5,
+        true
+      ],
+      "result": {
+        "miles_a": 47093.27840609453,
+        "miles_b": 47093.27840609453,
+        "total_miles": 94186.55681218905,
+        "events_a": 47.09327840609453,
+        "events_b": 23.546639203047263,
+        "design_effect": 1
+      }
+    },
+    {
+      "args": [
+        0.001,
+        0.5,
+        0.01,
+        0.95,
+        5,
+        0.3,
+        true
+      ],
+      "result": {
+        "miles_a": 432629.7068527037,
+        "miles_b": 1009469.3159896419,
+        "total_miles": 1442099.0228423458,
+        "events_a": 432.6297068527037,
+        "events_b": 504.73465799482096,
+        "design_effect": 5
+      }
+    },
+    {
+      "args": [
+        0.001,
+        0.5,
+        0.1,
+        0.9,
+        2,
+        0.7,
+        false
+      ],
+      "result": {
+        "miles_a": 113871.29278372058,
+        "miles_b": 48801.98262159454,
+        "total_miles": 162673.27540531513,
+        "events_a": 113.87129278372058,
+        "events_b": 24.400991310797274,
+        "design_effect": 2
+      }
+    },
+    {
+      "args": [
+        1,
+        0.01,
+        0.05,
+        0.8,
+        1,
+        0.5,
+        true
+      ],
+      "result": {
+        "miles_a": 156192.70671354656,
+        "miles_b": 156192.70671354656,
+        "total_miles": 312385.4134270931,
+        "events_a": 156192.70671354656,
+        "events_b": 154630.7796464111,
+        "design_effect": 1
+      }
+    },
+    {
+      "args": [
+        1,
+        0.01,
+        0.01,
+        0.95,
+        5,
+        0.3,
+        true
+      ],
+      "result": {
+        "miles_a": 1268622.9933298375,
+        "miles_b": 2960120.3177696206,
+        "total_miles": 4228743.3110994585,
+        "events_a": 1268622.9933298375,
+        "events_b": 2930519.1145919245,
+        "design_effect": 5
+      }
+    },
+    {
+      "args": [
+        1,
+        0.01,
+        0.1,
+        0.9,
+        2,
+        0.7,
+        false
+      ],
+      "result": {
+        "miles_a": 434900.74513167044,
+        "miles_b": 186386.0336278588,
+        "total_miles": 621286.7787595292,
+        "events_a": 434900.74513167044,
+        "events_b": 184522.1732915802,
+        "design_effect": 2
+      }
+    },
+    {
+      "args": [
+        1,
+        0.1,
+        0.05,
+        0.8,
+        1,
+        0.5,
+        true
+      ],
+      "result": {
+        "miles_a": 1491.2871495263275,
+        "miles_b": 1491.2871495263275,
+        "total_miles": 2982.574299052655,
+        "events_a": 1491.2871495263275,
+        "events_b": 1342.1584345736949,
+        "design_effect": 1
+      }
+    },
+    {
+      "args": [
+        1,
+        0.1,
+        0.01,
+        0.95,
+        5,
+        0.3,
+        true
+      ],
+      "result": {
+        "miles_a": 12342.671048444787,
+        "miles_b": 28799.5657797045,
+        "total_miles": 41142.23682814929,
+        "events_a": 12342.671048444787,
+        "events_b": 25919.60920173405,
+        "design_effect": 5
+      }
+    },
+    {
+      "args": [
+        1,
+        0.1,
+        0.1,
+        0.9,
+        2,
+        0.7,
+        false
+      ],
+      "result": {
+        "miles_a": 4073.088549571545,
+        "miles_b": 1745.6093783878055,
+        "total_miles": 5818.697927959351,
+        "events_a": 4073.088549571545,
+        "events_b": 1571.048440549025,
+        "design_effect": 2
+      }
+    },
+    {
+      "args": [
+        1,
+        0.5,
+        0.05,
+        0.8,
+        1,
+        0.5,
+        true
+      ],
+      "result": {
+        "miles_a": 47.09327840609453,
+        "miles_b": 47.09327840609453,
+        "total_miles": 94.18655681218905,
+        "events_a": 47.09327840609453,
+        "events_b": 23.546639203047263,
+        "design_effect": 1
+      }
+    },
+    {
+      "args": [
+        1,
+        0.5,
+        0.01,
+        0.95,
+        5,
+        0.3,
+        true
+      ],
+      "result": {
+        "miles_a": 432.6297068527036,
+        "miles_b": 1009.4693159896416,
+        "total_miles": 1442.0990228423452,
+        "events_a": 432.6297068527036,
+        "events_b": 504.7346579948208,
+        "design_effect": 5
+      }
+    },
+    {
+      "args": [
+        1,
+        0.5,
+        0.1,
+        0.9,
+        2,
+        0.7,
+        false
+      ],
+      "result": {
+        "miles_a": 113.87129278372056,
+        "miles_b": 48.80198262159454,
+        "total_miles": 162.6732754053151,
+        "events_a": 113.87129278372056,
+        "events_b": 24.40099131079727,
+        "design_effect": 2
+      }
+    }
+  ],
+  "power": [
+    {
+      "args": [
+        1000000.0,
+        0.001,
+        0.1,
+        0.05,
+        1,
+        0.5,
+        true
+      ],
+      "result": 0.36794625206869563
+    }
+  ]
+}

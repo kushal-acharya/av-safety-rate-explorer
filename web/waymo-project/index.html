@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#183d36">
+<meta name="description" content="Explore California autonomous vehicle disengagement rates, see the uncertainty, and plan the miles needed to detect a change. An independent, reproducible research project.">
+<title>AV Evidence — Autonomy, in perspective</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='14' fill='%23097969'/%3E%3Cpath d='M12 35L24 11l12 24M17 26h14' stroke='white' stroke-width='4' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/waymo-project/style.css">
+<script type="module" src="/waymo-project/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to analysis</a>
+<aside class="sidebar">
+  <a class="brand" href="/waymo-project/" aria-label="AV Evidence home"><span class="brand-mark">a<span>v</span></span><span>AV Evidence<small>AUTONOMY RESEARCH LAB</small></span></a>
+  <div class="nav-label">WORKSPACE <span>01</span></div>
+  <nav aria-label="Analysis views">
+    <button data-tab="rates" class="nav-item active"><span class="nav-icon">◫</span>Rate explorer<span class="nav-arrow">↗</span></button>
+    <button data-tab="compare" class="nav-item"><span class="nav-icon">⇄</span>Compare groups</button>
+    <button data-tab="planner" class="nav-item"><span class="nav-icon">⌁</span>Experiment planner</button>
+    <button data-tab="methods" class="nav-item"><span class="nav-icon">▤</span>Methods & data</button>
+  </nav>
+  <div class="sidebar-note"><span class="tiny-symbol">◎</span><h3>Evidence over intuition.</h3><p>Every rate has a denominator.<br>Every estimate has uncertainty.</p><button class="text-button" data-tab="methods">Explore the methodology <span>↗</span></button></div>
+  <div class="sidebar-footer"><span class="status-dot"></span> Public data. Open methods.<a href="https://github.com/kushal-acharya/av-safety-rate-explorer" target="_blank" rel="noopener">View on GitHub ↗</a><small>Independent project · Not affiliated with Waymo</small></div>
+</aside>
+<div class="workspace">
+<header class="topbar"><div class="breadcrumb">Research projects <span>/</span> <strong>Autonomous vehicles</strong></div><div class="top-actions"><span class="version">V 1.0</span><button id="share" class="small-button" title="Copy a link to these filters">↗ <span>Share view</span></button></div></header>
+<main id="main" tabindex="-1">
+  <section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="status-dot"></span> THE AUTONOMOUS VEHICLE EVIDENCE PROJECT</div><h1>Autonomy,<br><em>in perspective.</em></h1><p>Millions of miles. Rare events. Real uncertainty.<br>A clearer way to explore the evidence behind autonomous driving.</p><div class="hero-tags"><span>California DMV</span><span>2020–2024 snapshot</span><span>Open source</span></div></div>
+  <div class="road-art" aria-hidden="true"><svg viewBox="0 0 440 285" fill="none"><defs><pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#bcd2c8"/></pattern><linearGradient id="roadFade"><stop stop-color="#80b5a5" stop-opacity="0"/><stop offset=".5" stop-color="#80b5a5" stop-opacity=".6"/><stop offset="1" stop-color="#80b5a5" stop-opacity="0"/></linearGradient></defs><rect width="440" height="285" fill="url(#grid)"/><path d="M-25 250C130 250 74 50 225 60S300 208 477 146" stroke="url(#roadFade)" stroke-width="79"/><path d="M-25 250C130 250 74 50 225 60S300 208 477 146" stroke="#f4faf6" stroke-width="74"/><path d="M-25 250C130 250 74 50 225 60S300 208 477 146" stroke="#b4cabe" stroke-width="1.5" stroke-dasharray="8 8"/><path d="M-25 231C109 231 89 27 239 42S327 188 477 127" stroke="#148573" stroke-width="2"/><circle cx="242" cy="64" r="58" fill="#168574" fill-opacity=".04" stroke="#168574" stroke-opacity=".13"/><circle cx="242" cy="64" r="40" stroke="#168574" stroke-opacity=".2"/><circle cx="242" cy="64" r="23" fill="#168574" fill-opacity=".12"/><g transform="translate(222 53) rotate(9 21 11)"><rect width="42" height="23" rx="9" fill="#fff" stroke="#1b6c5b" stroke-width="1.5"/><rect x="11" y="4" width="19" height="15" rx="4" fill="#24594b"/><path d="M15 5v13M27 5v13" stroke="#abd2c3"/><circle cx="21" cy="11.5" r="3" fill="#dbefe5"/></g><circle cx="113" cy="186" r="5" fill="#cf7650"/><circle cx="113" cy="186" r="11" stroke="#cf7650" stroke-opacity=".3"/><path d="M113 200v34h80" stroke="#cf7650" stroke-opacity=".6"/><text x="138" y="254" fill="#767f70" font-size="10" letter-spacing="1.5">OBSERVE. ESTIMATE. QUESTION.</text><path d="M307 31h48v25" stroke="#89aa9e"/><text x="318" y="21" fill="#457569" font-size="10" letter-spacing="1">CA / USA</text></svg><span class="art-caption">A FIELD GUIDE TO MEASURING AUTONOMY</span></div></section>
+  <div class="context-note"><span>ⓘ</span><p><strong>Disengagements are not crashes.</strong> Reporting thresholds and testing conditions differ. These data cannot rank companies by safety.</p><button data-tab="methods" aria-label="Read data limitations">Read the context ↗</button></div>
+  <section class="filters" aria-label="Dataset filters">
+    <div class="filter-block manufacturer-block"><label>MANUFACTURER</label><details id="company-picker"><summary id="company-summary">Waymo <span>⌄</span></summary><div class="picker-panel"><div class="picker-actions"><button id="all-companies">Select all</button><button id="clear-companies">Clear</button></div><div id="company-options"></div></div></details></div>
+    <div class="filter-block year-block"><label>REPORTING YEARS</label><div id="year-buttons" class="year-buttons"></div></div>
+    <div class="filter-block"><label for="mode">TESTING PERMIT</label><select id="mode"><option value="safety-driver">With safety driver</option><option value="driverless">Driverless</option></select></div>
+    <div class="filter-block"><label for="confidence">CONFIDENCE</label><select id="confidence"><option value="0.9">90% CI</option><option value="0.95" selected>95% CI</option><option value="0.99">99% CI</option></select></div>
+    <button id="reset" class="reset-button" title="Reset all filters" aria-label="Reset all filters">↺</button>
+  </section>
+  <div id="loading" class="empty-state">Loading the audited DMV snapshot…</div>
+  <section id="view-rates" class="view" hidden></section>
+  <section id="view-compare" class="view" hidden></section>
+  <section id="view-planner" class="view" hidden></section>
+  <section id="view-methods" class="view" hidden></section>
+  <footer class="main-footer"><span>AV EVIDENCE <i>/</i> An exercise in asking better questions.</span><span>Historical data · Retrieved Sep 16, 2026 <span class="status-dot"></span></span></footer>
+</main></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<noscript><p>This interactive dashboard requires JavaScript. <a href="/waymo-project/exposure.csv">Download the data</a> or <a href="https://github.com/kushal-acharya/av-safety-rate-explorer">run the Python companion</a>.</p></noscript>
+</body></html>

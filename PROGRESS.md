@@ -20,3 +20,9 @@
 - Nothing deployed to vivaran.news yet. Target path remains /waymo-project.
 - Stopped the local Streamlit preview and paused ten-minute checkpoint automation.
 - Resume with the dashboard UI and Python/JavaScript statistical parity tests, then app smoke tests, screenshots and Cloudflare publishing.
+
+## Resumed — dashboard and companion built
+- Implemented a responsive custom dashboard with four views, shareable filters, CSV export, and explicit zero-event bounds.
+- Implemented the four-tab Streamlit companion; 28 Python tests now pass, including widget smoke tests.
+- Browser statistics match independent Python reference vectors for Poisson intervals, conditional comparisons and experiment planning.
+- Desktop browser interactions pass. Final mobile layout refinements and deployment checks are in progress.
