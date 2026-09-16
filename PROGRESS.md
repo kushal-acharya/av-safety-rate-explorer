@@ -49,3 +49,6 @@
 - Added shareable context selection and CSV export with full exposure, confidence and zero-count conventions.
 - Validated 31 Python tests, 9 JavaScript suites, browser interactions and all four accessibility scans.
 - Ready to publish this update to the existing Cloudflare path.
+- Published v1.1 at the existing URL; Cloudflare deployment ab9b1c16-1e6d-4429-ba69-4d51094381b7.
+- Production browser checks passed, including context selection, share-link persistence, exports and zero-event behavior.
+- Captured the live event-context panel and refreshed screenshots. Build timer paused after this delivery.
