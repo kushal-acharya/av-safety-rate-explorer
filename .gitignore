@@ -1,0 +1,15 @@
+# Ralph loop per-session state (written by the ralph-loop plugin)
+.claude/ralph-loop.local.md
+.claude/*.local.*
+data/raw/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.streamlit/secrets.toml
+node_modules/
+.wrangler/
+.env*
+.dev.vars*
+*.egg-info/
+.DS_Store
