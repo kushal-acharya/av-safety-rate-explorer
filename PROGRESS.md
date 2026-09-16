@@ -12,3 +12,11 @@
 - Processed 22,958 events and 10,092 VIN-year rows; recorded 13 date anomalies and one zero-exposure event unit.
 - Implemented Garwood intervals, one-sided zero-event bounds, NB2 with exposure, dispersion diagnostics, exact conditional comparison tests, and the normal-approximate experiment planner.
 - Public GitHub repository created; source-only checkpoint pushes underway.
+
+## Paused at user request — September 15, 2026 (EDT)
+- Phases 0–2 pushed to GitHub; 26 Python tests pass and core lint is clean.
+- Exported 533 statsmodels fit combinations for the future custom web dashboard.
+- The custom dashboard UI, full Streamlit companion, browser validation and deployment remain unfinished.
+- Nothing deployed to vivaran.news yet. Target path remains /waymo-project.
+- Stopped the local Streamlit preview and paused ten-minute checkpoint automation.
+- Resume with the dashboard UI and Python/JavaScript statistical parity tests, then app smoke tests, screenshots and Cloudflare publishing.
