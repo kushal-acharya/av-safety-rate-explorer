@@ -92,3 +92,10 @@
 - Source refetch verified all four archived CSV hashes and exact normalized extraction.
 - SF airbag benchmark increases 29.5% under geographic matching; observed rate reduction changes from 82.5% to 86.5% (+4.0 percentage points). The displayed 95% interval includes only Waymo count uncertainty.
 - Refreshed desktop/mobile screenshots and documentation. All progress pushed; build checkpoint timer paused at delivery.
+
+## Version 1.4 — project brief and frontend polish
+- Added a standalone, no-JavaScript project brief with an evidence example, three-minute research tour and methodology links.
+- Added a Project brief link to every analysis view, improved mobile header space and retained the existing analysis defaults.
+- Reformatted all CSS as readable source, pinned Prettier and added CSS-format checks to CI. Kept the modular JavaScript/esbuild frontend.
+- Local validation: 57 Python tests, 11 JavaScript suites, all four browser workflows, six-view accessibility checks, and brief accessibility/layout at 320/390/768/1440 px pass.
+- Documented frontend structure and a three-item background queue for typed numerical interfaces, input validation and a portable PDF brief. Deployment verification follows.

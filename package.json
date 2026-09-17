@@ -8,13 +8,16 @@
     "deploy": "wrangler deploy",
     "test": "node --test tests/*.test.js",
     "build": "esbuild web-src/app.js --bundle --minify --outfile=web/waymo-project/app.js",
-    "test:browser": "node scripts/test_browser.js && node scripts/test_replication_browser.js && node scripts/test_geography_browser.js"
+    "test:browser": "node scripts/test_browser.js && node scripts/test_replication_browser.js && node scripts/test_geography_browser.js && node scripts/test_brief_browser.js",
+    "format:css": "prettier --write \"web/waymo-project/*.css\"",
+    "check:css": "prettier --check \"web/waymo-project/*.css\""
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "@cloudflare/workers-types": "^5.20260915.1",
     "esbuild": "^0.28.2",
     "playwright": "^1.63.0",
+    "prettier": "3.9.7",
     "wrangler": "^4.132.0"
   },
   "dependencies": {

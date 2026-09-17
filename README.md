@@ -1,6 +1,7 @@
 # AV Evidence
 
-**[Open the publication study →](https://vivaran.news/waymo-project/?tab=replication)** ·
+**[Start with the project brief →](https://vivaran.news/waymo-project/brief.html)** ·
+[Open the publication study →](https://vivaran.news/waymo-project/?tab=replication) ·
 [Exposure matching](https://vivaran.news/waymo-project/?tab=geography) ·
 [DMV explorer](https://vivaran.news/waymo-project/?tab=rates) · [Source data and audit](data/README.md)
 
@@ -10,6 +11,10 @@ exposure needed for a hypothetical two-arm experiment. Each study keeps its own
 population, outcomes and mileage; crash counts are never joined to DMV testing miles.
 
 ![AV Evidence dashboard](assets/screenshot.png)
+
+The [project brief](https://vivaran.news/waymo-project/brief.html) provides a three-minute
+research walkthrough and works without JavaScript. Frontend details are in
+[the frontend guide](docs/frontend.md).
 
 ## What it does
 
