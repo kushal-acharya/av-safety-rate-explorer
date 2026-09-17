@@ -99,3 +99,10 @@
 - Reformatted all CSS as readable source, pinned Prettier and added CSS-format checks to CI. Kept the modular JavaScript/esbuild frontend.
 - Local validation: 57 Python tests, 11 JavaScript suites, all four browser workflows, six-view accessibility checks, and brief accessibility/layout at 320/390/768/1440 px pass.
 - Documented frontend structure and a three-item background queue for typed numerical interfaces, input validation and a portable PDF brief. Deployment verification follows.
+
+## Version 1.4 delivered — September 17, 2026
+- Live project brief: https://vivaran.news/waymo-project/brief (brief.html redirects to this canonical URL).
+- Cloudflare version: 6be29c18-b62e-4652-b88b-3e1a4ebad3c1. Code commit: 2ae9a72.
+- Linux CI run 35169686580 passed: 57 Python tests, 11 JavaScript suites, frozen-artifact checks, CSS formatting, all four browser workflows and dashboard accessibility.
+- Live brief passes no-JavaScript rendering, 320/390/768/1440 layout and accessibility checks, and links into all three working research views. All six production analysis views pass accessibility checks.
+- Background heartbeat is ACTIVE every ten minutes for the bounded queue in docs/BACKGROUND_QUEUE.md, with checked GitHub checkpoints and notifications for meaningful shipped work or failures. It will pause when the three queued improvements are complete.
