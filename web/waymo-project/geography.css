@@ -332,3 +332,153 @@
 #geo-audit-table {
   min-width: 650px;
 }
+
+/* Optional plain-English reading guide; values follow the selected scenario. */
+.geo-reading-guide {
+  border: 1px solid #cbdcc6;
+  border-radius: 12px;
+  background: #f1f6e9;
+  margin-top: 22px;
+  overflow: hidden;
+}
+.geo-reading-guide > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 25px;
+  color: #294c3b;
+  cursor: pointer;
+  list-style: none;
+}
+.geo-reading-guide > summary strong {
+  font-size: 15px;
+  font-weight: 600;
+  display: block;
+}
+.geo-reading-guide > summary small {
+  font-size: 10px;
+  color: #53654f;
+  display: block;
+  margin-top: 5px;
+}
+.guide-chevron {
+  font-size: 22px;
+}
+.geo-reading-guide[open] .guide-chevron {
+  transform: rotate(180deg);
+}
+.geo-guide-content {
+  border-top: 1px solid #d5e2cc;
+  padding: 0 25px 22px;
+}
+.geo-guide-context {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #485f49;
+  margin: 20px 0;
+}
+.geo-guide-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  list-style: none;
+  counter-reset: guide-step;
+  padding: 0;
+  margin: 20px 0;
+}
+.geo-guide-steps li {
+  counter-increment: guide-step;
+  padding: 20px;
+  background: white;
+  border: 1px solid #dce6d4;
+  border-radius: 8px;
+  min-width: 0;
+}
+.geo-guide-steps li:before {
+  content: "0" counter(guide-step);
+  font:
+    26px Georgia,
+    serif;
+  color: #286344;
+  display: block;
+  margin-bottom: 16px;
+}
+.geo-guide-steps h3,
+.geo-guide-bottom h3 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  line-height: 1.6;
+}
+.geo-guide-steps p,
+.geo-guide-bottom p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #4c624d;
+  margin: 0 0 14px;
+}
+.guide-calculation {
+  font-size: 11px;
+  border-top: 1px solid #e1e9da;
+  padding-top: 14px;
+  line-height: 1.9;
+  font-variant-numeric: tabular-nums;
+}
+.guide-calculation strong {
+  color: #14563e;
+  font-size: 15px;
+}
+.guide-calculation span {
+  display: block;
+  font-size: 9px;
+  color: #53654f;
+  margin-top: 5px;
+}
+.geo-guide-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 23px;
+}
+.geo-guide-boundary {
+  font-size: 10px;
+  line-height: 1.9;
+  color: #594f37;
+  padding: 15px 18px;
+  border: 1px solid #ded9bf;
+  background: #f7f3e8;
+  border-radius: 6px;
+  margin: 8px 0 0;
+}
+@media (max-width: 1100px) {
+  .geo-guide-steps {
+    grid-template-columns: 1fr;
+  }
+  .geo-guide-steps li {
+    padding: 20px;
+  }
+  .geo-guide-steps li:before {
+    float: left;
+    margin: 0 16px 0 0;
+  }
+  .geo-guide-steps p {
+    clear: both;
+    padding-top: 10px;
+  }
+}
+@media (max-width: 760px) {
+  .geo-reading-guide > summary {
+    padding: 20px;
+  }
+  .geo-guide-content {
+    padding: 0 18px 18px;
+  }
+  .geo-guide-bottom {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .geo-reading-guide > summary strong {
+    font-size: 14px;
+  }
+}

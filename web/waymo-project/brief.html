@@ -39,13 +39,13 @@
             >
           </h1>
           <p class="hero-description">
-            An open research workspace for asking better questions about
-            autonomous driving. Reproduce a published result, examine the
-            denominator, and keep uncertainty in view.
+            A statistics project that checks published comparisons between Waymo
+            and human drivers. Follow the data, see how the comparison changes,
+            and understand what the result can actually tell us.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#tour"
-              >Take the three-minute tour <span aria-hidden="true">↓</span></a
+            <a class="button button-primary" href="#start-here"
+              >Start with the basics <span aria-hidden="true">↓</span></a
             ><a
               class="text-link"
               href="https://github.com/kushal-acharya/av-safety-rate-explorer"
@@ -126,6 +126,91 @@
           <strong>Open</strong
           ><span>code, source hashes<br />and audit results</span>
         </div>
+      </section>
+      <section
+        class="beginner-section"
+        id="start-here"
+        aria-labelledby="beginner-title"
+      >
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow">NEW HERE? START HERE.</p>
+            <h2 id="beginner-title">What are we trying<br />to find out?</h2>
+          </div>
+          <p>
+            Whether selected published safety comparisons can be reproduced—and
+            how much their conclusions depend on the reference we choose.
+          </p>
+        </div>
+        <div class="beginner-story">
+          <div>
+            <h3>Imagine comparing two drivers.</h3>
+            <p>
+              One drives a short distance on quiet roads. The other drives
+              millions of miles through a busy city. Counting their crashes
+              alone would not be a fair comparison. We also need the distance
+              driven, the driving conditions and the uncertainty in the
+              estimates.
+            </p>
+            <p>
+              This project applies that reasoning to public Waymo research. It
+              reproduces selected calculations and lets you explore how the
+              human comparison changes when we account for where Waymo drove.
+            </p>
+          </div>
+          <div class="beginner-boundary">
+            <h3>What this project gives you</h3>
+            <p>
+              A way to inspect evidence and question assumptions. It is a
+              statistical research tool, not a self-driving system, and it does
+              not prove that Waymo is safer in every situation.
+            </p>
+            <a
+              class="text-link"
+              href="/waymo-project/?tab=geography&geoCity=SAN_FRANCISCO&geoMetric=airbag&geoMix=100&geoStress=100#geo-reading-guide"
+              >Walk through one real example ↗</a
+            >
+          </div>
+        </div>
+        <div class="beginner-terms">
+          <h3>Five words you’ll see</h3>
+          <dl>
+            <div>
+              <dt>Exposure</dt>
+              <dd>How much driving took place, measured here in miles.</dd>
+            </div>
+            <div>
+              <dt>Rate</dt>
+              <dd>
+                Events divided by miles. It lets us compare different amounts of
+                driving.
+              </dd>
+            </div>
+            <div>
+              <dt>Benchmark</dt>
+              <dd>The human reference rate we compare Waymo with.</dd>
+            </div>
+            <div>
+              <dt>Rate ratio</dt>
+              <dd>
+                Waymo’s rate divided by the human reference. Below 1 means a
+                lower observed rate.
+              </dd>
+            </div>
+            <div>
+              <dt>Uncertainty interval</dt>
+              <dd>
+                A range calculated under a statistical model. Its meaning
+                depends on which sources of uncertainty the model includes.
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <p class="beginner-next">
+          Then explore the three investigations below. The first two use crash
+          research; the DMV explorer uses a separate dataset of testing
+          interventions, called disengagements.
+        </p>
       </section>
       <section class="tour-section" id="tour">
         <div class="section-intro">

@@ -14,6 +14,7 @@ try {
   const response=await page.goto(`${origin}/waymo-project/brief.html`,{waitUntil:'networkidle'});
   assert.equal(response.status(),200);
   assert.equal(await page.locator('h1').count(),1);
+  assert.equal(await page.locator('.beginner-terms dt').count(),5);
   assert.equal(await page.locator('.tour-card').count(),3);
   for(const width of [1440,768,390,320]) {
     await page.setViewportSize({width,height:1000});
@@ -28,5 +29,11 @@ try {
     await live.goto(links[i],{waitUntil:'networkidle'});await live.locator(selector).waitFor();
     assert.equal(await live.locator('.brief-entry').getAttribute('href'),'/waymo-project/brief.html');
   }
+  await live.goto(`${origin}/waymo-project/?tab=geography#geo-reading-guide`,{waitUntil:'networkidle'});
+  await live.locator('#geo-reading-guide[open]').waitFor();
+  assert.equal(await live.locator('#geo-guide-summary').evaluate(el=>el===document.activeElement),true);
+  await live.setViewportSize({width:390,height:844});
+  await live.locator('#geo-reading-guide[open]').waitFor();
+  assert.ok(await live.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'expanded guide mobile overflow');
   console.log('Project brief passes: no-JavaScript rendering, four viewport sizes, accessibility and all three live research entry points.');
 } finally {await browser.close();}

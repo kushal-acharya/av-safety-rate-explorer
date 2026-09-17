@@ -13,7 +13,8 @@ population, outcomes and mileage; crash counts are never joined to DMV testing m
 ![AV Evidence dashboard](assets/screenshot.png)
 
 The [project brief](https://vivaran.news/waymo-project/brief.html) provides a three-minute
-research walkthrough and works without JavaScript. Frontend details are in
+research walkthrough, a plain-English starting guide and a glossary, and works without
+JavaScript. Exposure matching includes a walkthrough of the currently selected numbers. Frontend details are in
 [the frontend guide](docs/frontend.md).
 
 ## What it does
@@ -97,6 +98,7 @@ uv run ruff check . && uv run ruff format --check .
 uv run pytest -q
 uv run python scripts/reproduce_study.py --check
 uv run python scripts/reproduce_geography.py --check
+npm run typecheck
 npm test
 npm run test:browser       # preview must be running; uses installed Chrome locally
 node scripts/test_accessibility.js

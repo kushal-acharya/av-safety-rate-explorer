@@ -106,3 +106,10 @@
 - Linux CI run 35169686580 passed: 57 Python tests, 11 JavaScript suites, frozen-artifact checks, CSS formatting, all four browser workflows and dashboard accessibility.
 - Live brief passes no-JavaScript rendering, 320/390/768/1440 layout and accessibility checks, and links into all three working research views. All six production analysis views pass accessibility checks.
 - Background heartbeat is ACTIVE every ten minutes for the bounded queue in docs/BACKGROUND_QUEUE.md, with checked GitHub checkpoints and notifications for meaningful shipped work or failures. It will pause when the three queued improvements are complete.
+
+## Version 1.5 — explain the analysis and check its interfaces
+- Responded to the owner’s confusion by adding a plain-English introduction and five-term glossary to the project brief.
+- Added an expandable walkthrough of the current geographic comparison: events and miles → rate → human benchmark → ratio → percentage. It updates with city/outcome/sliders and keeps the uncertainty limits visible.
+- Added a direct beginner link, preserved URL fragments, and retained the open guide when controls change.
+- Added strict TypeScript checkJs around geographic scenario inputs/results and the reading guide, with a compile-time contract against the real exported JSON; no framework migration or changed numerical formula.
+- Type checking passes. Regression, browser and deployment verification in progress. Background queue item 1 implementation is ready; items 2 and 3 remain pending.

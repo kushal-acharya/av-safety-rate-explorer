@@ -47,7 +47,7 @@ function groups() {
 function updateURL() {
   const query = new URLSearchParams();
   Object.entries(state).forEach(([key,value])=>query.set(key,Array.isArray(value)?value.join(','):value));
-  history.replaceState(null,'',`${location.pathname}?${query}`);
+  history.replaceState(null,'',`${location.pathname}?${query}${location.hash}`);
 }
 function toast(message) { $('toast').textContent=message; $('toast').classList.add('visible'); setTimeout(()=>$('toast').classList.remove('visible'),3000); }
 function setTab(tab) { state.tab=tab; render(); }

@@ -12,6 +12,7 @@ try {
  await page.goto(`${origin}/waymo-project/?tab=geography&confidence=0.99&companies=Zoox`,{waitUntil:'networkidle'});
  await page.locator('#geo-audit-table').waitFor();
  assert.equal(await page.locator('.filters').isVisible(),false);
+ await page.click('#geo-guide-summary');
  for(const row of study.comparisons) {
   await page.selectOption('#geo-city',row.city);await page.selectOption('#geo-metric',row.metric);
   assert.equal(await page.locator('#geo-reduction').innerText(),`${row.matched.reduction_percent.toFixed(1)}%`);
@@ -23,6 +24,10 @@ try {
    assert.equal(await page.locator('#geo-reduction').innerText(),`${expected.reduction_percent.toFixed(1)}%`);
    assert.equal(await page.locator('#geo-ratio').innerText(),expected.ratio.toFixed(4));
    assert.equal(await page.locator('#geo-audit-table').innerText(),audit);
+   assert.equal(await page.locator('#geo-reading-guide').getAttribute('open'),'');
+   assert.equal(await page.locator('.guide-calculation strong').nth(0).innerText(),row.waymo_ipmm.toFixed(3));
+   assert.equal(await page.locator('.guide-calculation strong').nth(1).innerText(),expected.ratio.toFixed(4));
+   assert.equal(await page.locator('.guide-calculation strong').nth(2).innerText(),`${expected.reduction_percent.toFixed(1)}%`);
   }
   await page.click('#geo-reset');
  }

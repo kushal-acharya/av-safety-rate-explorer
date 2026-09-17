@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "types": []
+  },
+  "include": [
+    "web-src/geography.js",
+    "web-src/geography-guide.js",
+    "web-src/geography-types.d.ts",
+    "typecheck/geography-contract.ts"
+  ]
+}

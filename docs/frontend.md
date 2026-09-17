@@ -26,6 +26,7 @@ visible keyboard focus, reduced-motion support and scrollable wide data tables.
 npm ci
 npm run format:css
 npm run check:css
+npm run typecheck
 npm test
 npm run build
 npx wrangler dev --port 8789
@@ -37,6 +38,10 @@ node scripts/test_accessibility.js
 The browser suite checks rendering without JavaScript, tests layout and accessibility
 at 320, 390, 768 and 1440 pixels, and follows all three research entry points. The six
 analysis views have interaction, mobile and accessibility checks of their own.
-TypeScript is not currently required; avoid a framework migration merely to change
-file extensions. If types are introduced, start at numerical interfaces and retain the
-Python/JavaScript parity checks.
+The numerical geographic interface and plain-English reading guide now use TypeScript
+`checkJs` with JSDoc annotations. `geography-types.d.ts` documents rate units and the
+snapshot shape. The compile-only contract checks the actual exported JSON and ensures
+wrong scalar types and missing uncertainty endpoints are rejected. This is static
+checking, not runtime validation of arbitrary fetched data; frozen-input validation
+remains in Python. The 135-scenario Python/JavaScript parity checks still verify the math.
+The rest of the dashboard remains modular JavaScript. No framework migration is needed.
