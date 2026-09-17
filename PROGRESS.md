@@ -113,3 +113,11 @@
 - Added a direct beginner link, preserved URL fragments, and retained the open guide when controls change.
 - Added strict TypeScript checkJs around geographic scenario inputs/results and the reading guide, with a compile-time contract against the real exported JSON; no framework migration or changed numerical formula.
 - Type checking passes. Regression, browser and deployment verification in progress. Background queue item 1 implementation is ready; items 2 and 3 remain pending.
+
+## Version 1.5 delivered — September 17, 2026
+- Beginner guide: https://vivaran.news/waymo-project/brief#start-here
+- Live arithmetic walkthrough: https://vivaran.news/waymo-project/?tab=geography#geo-reading-guide
+- Cloudflare version: 2e40506a-c7ab-4d8d-af0a-f7dbb89b9d8f. Code commit: 002f95f.
+- Linux CI 35171260900 passed all checks, including strict TypeScript, 57 Python tests, 11 JavaScript suites, both frozen reproductions, four browser workflows, six-view accessibility and the expanded guide.
+- Production geography and brief browser workflows pass, including all nine comparisons, guide updates, deep-link focus, exports and mobile. All six live views plus the expanded guide pass automated accessibility checks.
+- Background queue item 1 is complete. Items 2 (input validation) and 3 (portable PDF brief) remain pending; the ten-minute background heartbeat remains active.

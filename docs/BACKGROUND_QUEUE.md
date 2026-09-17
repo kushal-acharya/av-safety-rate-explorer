@@ -5,7 +5,7 @@ in the background after shipping the current frontend. Work on one item per sche
 turn. Record completion and evidence here and in PROGRESS.md. Do not silently extend
 this queue; pause the automation when all three items are complete.
 
-## 1. Numerical frontend interfaces — implemented; release verification in progress
+## 1. Numerical frontend interfaces — complete
 
 Add narrow static type checking to the geographic scenario interface (JSDoc +
 TypeScript checkJs is acceptable) and its source-data shape. Keep the existing
@@ -16,6 +16,7 @@ new type-check command in CI. A type-check dependency is authorized; no paid ser
 Implemented in v1.5: strict `npm run typecheck` for the geographic scenario, reading
 guide and the actual exported JSON shape. Compile-only negative checks cover wrong
 scalar types and missing interval endpoints. Existing 135-scenario parity checks pass.
+Linux CI run 35171260900 and production verification passed; delivered in v1.5.
 
 ## 2. Frozen-input validation — pending
 
