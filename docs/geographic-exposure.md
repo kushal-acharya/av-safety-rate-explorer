@@ -134,3 +134,25 @@ URL persistence, slider focus, invariant audit, CSV contents, mobile and retry.
 The geographic study runs in the custom web interface and Python CLI; the original
 Streamlit companion remains the DMV explorer. No additional server or tracking service
 is needed.
+
+## Validation of the frozen inputs
+
+File hashes check whether input bytes changed. Separate semantic validation also
+rejects malformed inputs if an edited file has been rehashed during a proposed update.
+The loader requires all three input hashes, exact table schemas, finite numeric values,
+positive human exposure and benchmark rates, nonnegative counts, integer event counts,
+consistent city mileage, and matching outcome coverage within each geographic cell.
+
+Event membership flags must be 0 or 1. Injury and airbag events must belong to the
+in-transport cohort. Calendar months must be valid and fall inside the frozen window.
+The loader preserves exactly the 523 source CSV rows numbered 2–524, including Austin;
+unknown cities, missing rows and added rows require an explicit study update. Cell IDs
+must retain their 19-digit source representation. Report IDs must have the source's
+numeric-hyphen-numeric form or be blank. The two documented blank IDs and the repeated
+ID remain accepted; row numbers identify events, so report IDs are not deduplicated.
+
+These checks enforce the frozen input contract. They do not independently establish
+that source event labels, reporting corrections or human benchmark estimates are true.
+Tests deliberately modify and rehash input copies to exercise semantic rejection,
+separately from the existing hash-drift test. The committed inputs and all exported
+numerical results remain unchanged.

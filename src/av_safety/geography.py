@@ -10,6 +10,7 @@ from typing import Any
 
 import pandas as pd
 
+from av_safety.geography_validation import validate_geography
 from av_safety.stats import poisson_rate_ci
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -102,6 +103,13 @@ def load_geography(
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, dict]:
     """Validate the frozen inputs before computing anything."""
     manifest = json.loads((directory / "manifest.json").read_text())
+    hashes = manifest.get("processed_sha256")
+    if not isinstance(hashes, dict) or set(hashes) != {
+        "cells.csv",
+        "city_inputs.csv",
+        "events.csv",
+    }:
+        raise ValueError("Manifest must hash exactly the three geographic input files")
     for filename, expected in manifest["processed_sha256"].items():
         if hashlib.sha256((directory / filename).read_bytes()).hexdigest() != expected:
             raise ValueError(f"Geography input hash mismatch: {filename}")
@@ -109,26 +117,8 @@ def load_geography(
         directory / "cells.csv", dtype={"cell_id": str}, float_precision="round_trip"
     )
     inputs = pd.read_csv(directory / "city_inputs.csv", float_precision="round_trip")
-    events = pd.read_csv(directory / "events.csv", keep_default_na=False)
-    if cells.duplicated(["city", "metric", "cell_id"]).any():
-        raise ValueError("duplicate city/metric/cell")
-    if not set(cells.city) == set(CITIES) or not set(cells.metric) == set(METRICS):
-        raise ValueError("unexpected geographic or outcome scope")
-    if (
-        not set(zip(inputs.city, inputs.metric, strict=True))
-        == {(city, metric) for city in CITIES for metric in METRICS}
-        or len(inputs) != 9
-    ):
-        raise ValueError("expected exactly nine city/metric inputs")
-    for _, group in cells.groupby(["city", "cell_id"]):
-        if (
-            group.metric.nunique() != 3
-            or group.human_miles.nunique() != 1
-            or group.waymo_miles.nunique() != 1
-        ):
-            raise ValueError("mileage must agree across outcomes within a cell")
-    if events.source_row.duplicated().any():
-        raise ValueError("duplicate source row")
+    events = pd.read_csv(directory / "events.csv", dtype={"report_id": str}, keep_default_na=False)
+    validate_geography(cells, inputs, events, set(CITIES), set(METRICS))
     return cells, inputs, events, manifest
 
 

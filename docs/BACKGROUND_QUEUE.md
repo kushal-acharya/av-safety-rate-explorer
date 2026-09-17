@@ -18,13 +18,18 @@ guide and the actual exported JSON shape. Compile-only negative checks cover wro
 scalar types and missing interval endpoints. Existing 135-scenario parity checks pass.
 Linux CI run 35171260900 and production verification passed; delivered in v1.5.
 
-## 2. Frozen-input validation — pending
+## 2. Frozen-input validation — implemented; CI verification in progress
 
 Review geographic input validation for malformed memberships, nonfinite/negative
 exposure, unexpected cohort rows and inconsistent identifiers. Add explicit checks
 where a real gap exists, with meaningful invalid-input tests. Keep the frozen source
 files and numerical results unchanged. Reproduce both research snapshots and run
 Python/JavaScript tests. Record anything intentionally dependent on source judgment.
+
+Implemented semantic checks separate from file hashes, including cohort membership,
+calendar validity, numeric domains, source-row coverage, identifier syntax and cross-outcome
+consistency. Added 23 rejection tests using altered/rehashed copies; 80 Python tests
+and 11 JavaScript suites pass, as do type checks and both unchanged study reproductions.
 
 ## 3. Portable research brief — pending
 
