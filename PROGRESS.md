@@ -138,3 +138,10 @@
 - Added the download to the no-JavaScript project brief and documented reproduction through the optional pinned ReportLab dependency group. CI verifies both committed PDF copies.
 - Both pages rendered and visually inspected at 125 dpi. PDF text/link checks pass. Browser verification passes exact download bytes/MIME/filename, four responsive sizes, accessibility and the three research entry points.
 - Local checks pass: Ruff, 80 Python tests, 11 JavaScript tests, strict TypeScript, CSS formatting, both study reproductions and the deterministic PDF check. Linux CI and deployment verification follow.
+
+## Portable research brief delivered — September 17, 2026
+- Download is live on https://vivaran.news/waymo-project/brief. The two-page companion preserves historical cohorts, uncertainty limits, source links and the independent-project statement.
+- Code commit 4375c13; Linux CI 35191566411 passed, including 80 Python tests, 11 JavaScript tests, both frozen reproductions, deterministic PDF generation, TypeScript and all browser/accessibility checks.
+- Cloudflare version b945b332-8df6-4b43-a6f3-742f08560bc5. Production browser verification passes PDF MIME/filename/byte equality, no-JavaScript rendering, four viewport sizes, accessibility and three research entry points.
+- Live PDF and both research JSON exports match the verified local artifacts byte for byte. Temporary PDF rendering files were removed; the repository includes both final PDF copies and generation instructions.
+- All three background queue items are complete. The waymo-build-checkpoints automation has been paused.

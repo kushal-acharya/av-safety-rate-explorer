@@ -33,7 +33,7 @@ and 11 JavaScript suites pass, as do type checks and both unchanged study reprod
 Linux CI 35189167184 passed, including all browser workflows and accessibility checks.
 Both production study payloads exactly match the unchanged verified artifacts.
 
-## 3. Portable research brief — verification in progress
+## 3. Portable research brief — complete
 
 Create a concise, printable PDF companion to the project brief, using the verified
 frozen examples and direct methodology links. Read the PDF skill, render and inspect
@@ -43,7 +43,13 @@ causal safety benefits or invent credentials, affiliations or new data.
 
 The two-page PDF and web download are implemented and locally verified, including
 rendered-page review, deterministic byte checks, responsive layout and accessibility.
-Linux CI and production publication are pending.
+Linux CI 35191566411 passed for code commit 4375c13, including deterministic PDF
+checks and all browser workflows. Published in Cloudflare version
+`b945b332-8df6-4b43-a6f3-742f08560bc5`. Live PDF download, MIME type, filename,
+exact bytes, responsive layouts, accessibility and research entry links all pass.
+The PDF and both study payloads match verified local files byte for byte.
+
+All three queued items are complete. The background automation is paused.
 
 ## Release discipline
 
