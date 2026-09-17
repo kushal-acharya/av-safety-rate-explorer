@@ -33,13 +33,17 @@ and 11 JavaScript suites pass, as do type checks and both unchanged study reprod
 Linux CI 35189167184 passed, including all browser workflows and accessibility checks.
 Both production study payloads exactly match the unchanged verified artifacts.
 
-## 3. Portable research brief — pending
+## 3. Portable research brief — verification in progress
 
 Create a concise, printable PDF companion to the project brief, using the verified
 frozen examples and direct methodology links. Read the PDF skill, render and inspect
 the artifact, and keep all conditional-uncertainty and independent-project statements.
 Link it from the brief and document a reproducible generation command. Do not claim
 causal safety benefits or invent credentials, affiliations or new data.
+
+The two-page PDF and web download are implemented and locally verified, including
+rendered-page review, deterministic byte checks, responsive layout and accessibility.
+Linux CI and production publication are pending.
 
 ## Release discipline
 

@@ -132,3 +132,9 @@
 - Pipeline code committed in ecc5150. Linux CI run 35189167184 passed: 80 Python tests, 11 JavaScript suites, type checks, both study reproductions, all browser workflows and automated accessibility checks.
 - Production geography.json and replication.json match the verified local artifacts byte for byte. Numerical results, frozen inputs and deployed UI assets are unchanged; this improvement is in the reproducible analysis pipeline on GitHub.
 - Background queue item 2 is complete. Only the portable PDF research brief remains pending; the scheduled follow-up stays active.
+
+## Portable research brief — implementation checkpoint
+- Built a deterministic two-page PDF from the verified study exports, with embedded fonts, cohort dates, conditional uncertainty, independence statements and four clickable methodology/project links.
+- Added the download to the no-JavaScript project brief and documented reproduction through the optional pinned ReportLab dependency group. CI verifies both committed PDF copies.
+- Both pages rendered and visually inspected at 125 dpi. PDF text/link checks pass. Browser verification passes exact download bytes/MIME/filename, four responsive sizes, accessibility and the three research entry points.
+- Local checks pass: Ruff, 80 Python tests, 11 JavaScript tests, strict TypeScript, CSS formatting, both study reproductions and the deterministic PDF check. Linux CI and deployment verification follow.

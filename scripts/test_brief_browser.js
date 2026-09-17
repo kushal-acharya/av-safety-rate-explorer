@@ -1,5 +1,6 @@
 /** Review the standalone brief, its research links and responsive presentation. */
 import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
 import {chromium} from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 const browser=await chromium.launch({headless:true,channel:process.env.CI?undefined:'chrome'});
@@ -13,6 +14,16 @@ const page=await context.newPage();
 try {
   const response=await page.goto(`${origin}/waymo-project/brief.html`,{waitUntil:'networkidle'});
   assert.equal(response.status(),200);
+  const pdfResponse=await page.request.get(new URL(await page.locator('#brief-pdf').getAttribute('href'),origin).href);
+  assert.equal(pdfResponse.status(),200);
+  assert.match(pdfResponse.headers()['content-type'],/application\/pdf/);
+  const expectedPdf=await readFile('output/pdf/av-evidence-research-brief.pdf');
+  assert.deepEqual(await pdfResponse.body(),expectedPdf);
+  const downloadPending=page.waitForEvent('download');
+  await page.locator('#brief-pdf').click();
+  const download=await downloadPending;
+  assert.equal(download.suggestedFilename(),'av-evidence-research-brief.pdf');
+  assert.deepEqual(await readFile(await download.path()),expectedPdf);
   assert.equal(await page.locator('h1').count(),1);
   assert.equal(await page.locator('.beginner-terms dt').count(),5);
   assert.equal(await page.locator('.tour-card').count(),3);
@@ -35,5 +46,5 @@ try {
   await live.setViewportSize({width:390,height:844});
   await live.locator('#geo-reading-guide[open]').waitFor();
   assert.ok(await live.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'expanded guide mobile overflow');
-  console.log('Project brief passes: no-JavaScript rendering, four viewport sizes, accessibility and all three live research entry points.');
+  console.log('Project brief passes: PDF download and exact bytes, no-JavaScript rendering, four viewport sizes, accessibility and all three live research entry points.');
 } finally {await browser.close();}

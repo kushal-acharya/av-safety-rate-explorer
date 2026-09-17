@@ -189,3 +189,9 @@ and Python CLI. No personal identity or Waymo affiliation is implied.
 
 **Pitch:** “I reproduced selected published AV crash-rate comparisons, exposed an
 interval-convention difference, and built an interactive tool to inspect the evidence.”
+
+### Portable research brief
+
+The [two-page PDF](output/pdf/av-evidence-research-brief.pdf) summarizes the frozen
+reference findings, methods and limitations. It is also downloadable from the live
+project brief. See [reproduction instructions](docs/research-brief.md) to rebuild it.
